@@ -1,36 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    h1 {
-      margin-top: 10vh;
-    }
+h1{margin-top:10vh;}
 
-    ul,
-    ol,
-    menu {}
-
-    li {
-      font-size: 1.2vw;
-    }
-
-    ul li {
-      float: left;
-      margin-inline: 2%;
-    }
-
-    menu:nth-of-type(2) li::marker {
-      content: "😊";
-    }
   </style>
 </head>
-
 <body>
-  <menu style="display:flex;justify-content: end;list-style:none;align-items:center;font-size:1vw;">
+    <menu style="display:flex;justify-content: end;list-style:none;align-items:center;font-size:1vw;">
     <li style="margin-inline:2%;"><a href="index.html" style="text-decoration:none;">
         <p
           style="background:center/contain no-repeat url(https://cdn.pixabay.com/photo/2015/12/28/02/58/home-1110868_1280.png);color:transparent;padding:2%;">
@@ -49,40 +29,7 @@
     <li style="margin-inline:2%;background:green;padding:1%;"><a href="06_media.html"
         style="text-decoration: none;color:#fff;">미디어 태그</a></li>
   </menu>
-  <h1>목록 관련 태그</h1>
+  <h1>미디어 관련 태그</h1>
   <hr>
-  <ul type="square" style="clear:both;">
-    <!-- square, circle, disc(기본) -->
-    <li>한식</li>
-    <li>중식</li>
-    <li>양식</li>
-  </ul><br>
-  <ol type="I">
-    <!-- 1(기본), A, a, I, i -->
-    <li>커피</li>
-    <li>에이드</li>
-    <li>스무디</li>
-  </ol>
-  <menu>
-    <li>안녕</li>
-    <li>hello</li>
-    <li>bon jour</li>
-  </menu>
-  <script>
-    let n = 0;
-    let ult = 'square,circle,disc'.split(',');
-    let olt = '1,A,a,I,i'.split(',');
-    document.onclick = () => {
-      console.log(event.target.tagName)
-      if (['LI'].indexOf(event.target.tagName) > -1) {
-        let wlt = olt.slice(0, olt.length);
-        if (event.target.parentElement.tagName == 'UL') wlt = ult.slice(0, ult.length);
-        n = wlt.indexOf(event.target.parentElement.type);
-        wlt.length - 1 > n ? n++ : n = 0;
-        event.target.parentElement.type = wlt[n];
-      }
-    }
-  </script>
 </body>
-
 </html>
