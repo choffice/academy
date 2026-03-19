@@ -4,10 +4,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Welcom HTML</title>
+	<script>
+	</script>
 </head>
 
 <body>
-	<h1>HTML 태그</h1>
+	<h1>의 HTML 태그</h1>
 	<HR>
 	</HR>
 	<ol>
@@ -18,7 +20,13 @@
 			<li><a href="05_table.html">테이블 태그</a></li>
 			<li><a href="06_media.html">미디어 태그</a></li>
 			<li><a href="07_space.html">공간 태그</a></li>
+			<li><a href="08_semantic.html">semantic 태그</a></li>
+			<li><a href="09_form.html">입력양식 태그</a></li>
 	</ol>
+<script src="bunny.js"></script>
+<script>
+let tit = location.href.split('name=')[1].split('&')[0];
+document.querySelector('h1').innerHTML=tit+document.querySelector('h1').innerHTML;</script>
 </body>
 
 </html>

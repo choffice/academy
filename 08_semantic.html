@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <style>
+    h1 {
+      margin-top: 10vh;
+    }
+
+    div {
+      background: lightgray;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1%;
+      height: 200px;
+      width: 200px;
+    }
+
+    div * {
+      font-size: 1vw;
+      font-weight: bold;
+      text-align: center;
+      list-style: none;
+      margin-block: 1%;
+    }
+
+    div>* {
+      outline: 2px solid #fff;
+    }
+
+    header {
+      background: salmon;
+      width: 100%;
+    }
+
+    nav {
+      background: cornflowerblue;
+      width: 100%;
+    }
+
+    aside {
+      background: yellowgreen;
+      width: 25%;
+      height: 50%;
+      margin-right: 5%;
+      padding-block: 2%;
+    }
+
+    main {
+      height: 50%;
+      background: skyblue;
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding-block: 2%;
+    }
+
+    article {
+      outline: 2px solid #fff;
+      background: dodgerblue;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding-block: 2%;
+    }
+
+    figure {
+      outline: 2px solid #fff;
+      background: orange;
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section {
+      outline: 2px solid #fff;
+      background: cornflowerblue;
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    footer {
+      background: mediumspringgreen;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <menu style="display:flex;justify-content: end;list-style:none;align-items:center;font-size:1vw;">
+    <li style="margin-inline:2%;"><a href="index.html" style="text-decoration:none;">
+        <p
+          style="background:center/contain no-repeat url(https://cdn.pixabay.com/photo/2015/12/28/02/58/home-1110868_1280.png);color:transparent;padding:2%;">
+          메인 홈으로</p>
+      </a></li>
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="01_text.html"
+        style="text-decoration: none;color:#fff;">텍스트 태그</a></li>
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="02_image.html"
+        style="text-decoration: none;color:#fff;">이미지 태그</a></li>
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="03_a.html"
+        style="text-decoration: none;color:#fff;">하이퍼 태그</a></li>
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="04_list.html"
+        style="text-decoration: none;color:#fff;">리스트 태그</a></li>
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="05_table.html"
+        style="text-decoration: none;color:#fff;">테이블 태그</a></li>
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="06_media.html"
+        style="text-decoration: none;color:#fff;">미디어 태그</a></li>
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="07_space.html"
+        style="text-decoration: none;color:#fff;">공간 태그</a></li>
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="08_semantic.html"
+        style="text-decoration: none;color:#fff;">semantic 태그</a></li>
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="09_form.html"
+        style="text-decoration: none;color:#fff;">입력양식 태그</a></li>
+
+        </menu>
+    <h1>semantic 태그</h1>
+    <hr>
+    <p><span class="material-icons icon">key</span>
+      태그가 단순히 다큐먼트의 구조적 기능에만 국한된 것이 아니라 태그를 참조함에 있어서 의미를 부여할 수 있는 기능</p>
+    <p><span class="material-icons icon">view_timeline</span>검색 엔진 기계 입장에서 콘텐츠를 더 쉽게 이해할 수 있게 하여 SEO (검색엔진최적화) 성능을 더욱
+      향상시킬
+      수 있다.</p>
+    <hr>
+
+    <img src="images/semantic.jpg">
+
+    <div>
+      <!-- header(상단영역, 로고, 제목) -->
+      <header>
+        <h1>header</h1>
+      </header>
+      <nav>
+        <!-- nav(메뉴/링크 모음) -->
+        <ul>
+          <li>nav</li>
+        </ul>
+      </nav>
+      <!-- aside(광고, 사이드바) -->
+      <aside>
+        <h5>aside</h5>
+      </aside>
+      <main>
+        <!-- main(핵심 콘텐츠) -->
+        <h5>main</h5>
+        <article>
+          <!-- article(뉴스, 게시글, 개별적인 구역)-->
+          <h3>article</h3>
+          <!-- figure(이미지/그래프 묶음), figcaption(설명) -->
+          <figure>
+            <h4>figure</h4>
+          </figure>
+        </article>
+        <!-- section(주제별 구역) -->
+        <section>
+          <p>section</p>
+        </section>
+      </main>
+      <!-- footer(하단 정보) -->
+      <footer>
+        <h2>footer</h2>
+        <!-- mark(강조), time(날짜, 시간), address(주소) -->
+      </footer>
+    </div>
+</body>
+
+</html>

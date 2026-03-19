@@ -6,29 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    body {
-      padding: 0;
-      margin: 0;
-    }
-
     h1 {
       margin-top: 10vh;
-    }
-
-    h1 {
-      color: #fff;
-      text-shadow: 1vh 1vh 0vh #000;
-      text-indent: 2vw;
-    }
-
-    section {
-      width: 100vw;
-      height: 100vh;
-    }
-
-    section>video {
-      width: 100%;
-      border: none;
     }
   </style>
 </head>
@@ -56,18 +35,28 @@
         style="text-decoration: none;color:#fff;">공간 태그</a></li>
     <li style="margin-inline:2%;background:green;padding:1%;"><a href="08_semantic.html"
         style="text-decoration: none;color:#fff;">semantic 태그</a></li>
-        <li style="margin-inline:2%;background:green;padding:1%;"><a href="09_form.html"
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="09_form.html"
         style="text-decoration: none;color:#fff;">입력양식 태그</a></li>
   </menu>
-  <section>
-    <!-- 공통 속성 controls, loop, autoplay -->
-    <video src="media/cat.mp4" type="video/webm" style="display:block;" controls loop autoplay></video>
-  </section>
-  <h1>미디어 관련 태그</h1>
+  <h1>입력양식 태그</h1>
   <hr>
-  <audio controls loop autoplay>
-    <source src="media/Kalimba.ogg" type="media/ogg">
-  </audio><br>
+  <form action="index.html" method="get">
+    <fieldset>
+      <legend>입력양식 태그 종류</legend>
+      <label for="name">이름 &nbsp;</label><input type="text" name="name" placeholder="한글로입력" id="name">
+      <label for="male">남</label>
+      <input type="radio" value="1" name="gender" checked>
+      <label for="female">여</label>
+      <input type="radio" value="2" name="gender">
+      <br><label for="비밀번호" id="pw">암호 </label><input type="password" name="pw" id="pw" placeholder="숫자 6자리 입력">
+      <a href="https://news.naver.com/index.html?news=naver">뉴스보기</a>
+    </fieldset>
+<input type="submit" value="저장 submit">
+<input type="button" value="저장 button">
+  </form>
+  <!-- form 밖에 있으면 안 된다 -->
+   <input type="text" name="etc" id="etc" placeholder="이건 전송 안 된다">
+  <script src="bunny.js"></script>
 </body>
 
 </html>
