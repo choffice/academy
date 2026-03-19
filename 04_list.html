@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
     h1{margin-top:10vh;}
+    ul,ol,menu{}
+    li{font-size:1.2vw;}
+    ul li{float:left;margin-inline:2%;}
+    menu:nth-of-type(2) li::marker{content : "😊";}
   </style>
 </head>
 
@@ -18,15 +21,38 @@
   <li style="margin-inline:2%;background:green;padding:1%;"><a href="03_a.html" style="text-decoration: none;color:#fff;">하이퍼 태그</a></li>
     <li style="margin-inline:2%;background:green;padding:1%;"><a href="04_list.html" style="text-decoration: none;color:#fff;">리스트 태그</a></li>
  </menu>
-  <h1>하이퍼링크 태그</h1>
-  <hr>
-  <a id="move00" href="#move01">01</a>,<a href="#move02">02</a>,<a href="#move03">03</a>,<a href="#move04">04</a>,<a href="#move05">05</a>
-  <p id="move01">01</p><a href="#move00">back</a><br><br><br><br><br><br><br><br><br>
-  <p id="move02">02</p><a href="#move00">back</a><br><br><br><br><br><br><br><br><br>
-  <p id="move03">03</p><a href="#move00">back</a><br><br><br><br><br><br><br><br><br>
-  <p id="move04">04</p><a href="#move00">back</a><br><br><br><br><br><br><br><br><br>
-  <p id="move05">05</p><a href="#move00">back</a><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br>br>
+ <h1>목록 관련 태그</h1>
+ <hr>
+ <ul type="square" style="clear:both;">
+  <!-- square, circle, disc(기본) -->
+  <li>한식</li>
+  <li>중식</li>
+  <li>양식</li>
+ </ul><br>
+ <ol type="I">
+  <!-- 1(기본), A, a, I, i -->
+<li>커피</li>
+<li>에이드</li>
+<li>스무디</li>
+ </ol>
+ <menu>
+<li>안녕</li>
+<li>hello</li>
+<li>bon jour</li>
+ </menu>
+<script>
+let n = 0;
+let ult = 'square,circle,disc'.split(',');
+let olt = '1,A,a,I,i'.split(',');
+document.onclick = () => {console.log(event.target.tagName)
+  if(['LI'].indexOf(event.target.tagName)>-1){
+    let wlt = olt.slice(0,olt.length);
+    if(event.target.parentElement.tagName=='UL') wlt = ult.slice(0,ult.length);
+    n = wlt.indexOf(event.target.parentElement.type);
+    wlt.length-1>n?n++:n=0;
+    event.target.parentElement.type = wlt[n];
+  } 
+}
+</script>
 </body>
-
 </html>
