@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-h1{margin-top:10vh;}
-
+    body{padding:0;margin:0;}
+    h1 {
+      margin-top: 10vh;
+    }
+    h1{color:#fff;text-shadow:1vh 1vh 0vh #000;text-indent:2vw;}
+    section{width:100vw;height:100vh;}
+    section>video{width:100%;border:none;}
   </style>
 </head>
+
 <body>
-    <menu style="display:flex;justify-content: end;list-style:none;align-items:center;font-size:1vw;">
+  <menu style="display:flex;justify-content: end;list-style:none;align-items:center;font-size:1vw;">
     <li style="margin-inline:2%;"><a href="index.html" style="text-decoration:none;">
         <p
           style="background:center/contain no-repeat url(https://cdn.pixabay.com/photo/2015/12/28/02/58/home-1110868_1280.png);color:transparent;padding:2%;">
@@ -28,8 +35,18 @@ h1{margin-top:10vh;}
         style="text-decoration: none;color:#fff;">테이블 태그</a></li>
     <li style="margin-inline:2%;background:green;padding:1%;"><a href="06_media.html"
         style="text-decoration: none;color:#fff;">미디어 태그</a></li>
+    <li style="margin-inline:2%;background:green;padding:1%;"><a href="07_space.html"
+        style="text-decoration: none;color:#fff;">공간 태그</a></li>
   </menu>
+  <section>
+    <!-- 공통 속성 controls, loop, autoplay -->
+    <video src="media/cat.mp4" type="video/webm" style="display:block;" controls loop autoplay></video>
+  </section>
   <h1>미디어 관련 태그</h1>
   <hr>
+  <audio controls loop autoplay>
+    <source src="media/Kalimba.ogg" type="media/ogg">
+  </audio><br>
 </body>
+
 </html>
