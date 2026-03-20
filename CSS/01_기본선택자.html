@@ -1,12 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    /* 전체 선택자 */
+    * {
+      margin:0; padding: 0;
+    }
+
+    @keyframes colorshow{
+      0%{background:salmon}
+      20%{background:#fff;}
+      40%{background:gray;}
+      60%{background:slategray;}
+      80%{background:darkslategray;}
+      100%{background:skyblue;}
+    }
+
+    /* 태그 선택자 */
+    body{
+      background: yellow;
+      animation: 30s linear 0s infinite normal colorshow;
+    }
+
+    ul{
+      list-style: none;
+    }
+
+    li{
+      font-style:italic;
+    }
+    
+    /* 아이디 선택자 */
+    #pick{
+      font-weight: bold;
+    }
+
+    .theClass-1{font-weight: bold;} /*O*/
+    .1theClass{font-weight: bold;} /*숫자로 시작 X*/
+    .1{font-weight: bold;}/*위와 동일 X*/
+    .the class{font-weight: bold;}/*띄어쓰기 X*/
+    .Theclass{font-weight:bold;}/*(변경)대문자로 시작 O*/
+    .-Theclass{font-weight: bold;}/*- 사용 가능 O*/
+    .-{font-weight: bold;}/*- 단독 안됨X*/
+    ._{font-weight: bold;}/*_ 단독 가능O*/
+    ._Theclass{font-weight: bold;}/*_시작 가능O*/
+  </style>
 </head>
+
 <body>
-  <h1></h1>
+  <h1>기본 선택자</h1>
+  <ul>
+    <li>전체 선택자 *</li>
+    <li>태그 선택자</li>
+    <li id="pick">아이디 선택자</li>
+    <li class="theClass-1">클래스 선택자</li>
+    <li class="1theClass">클래스 선택자(숫자로 시작)</li>
+    <li class="1">클래스 선택자(숫자만)</li>
+    <li class="the class">클래스 선택자(공백)</li>
+    <!-- 띄어쓰기 할 경우 the와 class 두개의 클래스로 인식-->
+    <li class="Theclass">클래스 선택자(대문자로 시작)</li>
+    <li class="-Theclass">클래스 선택자(-로 시작)</li>
+    <li class="-">클래스 선택자(- 단독)</li>
+    <li class="_">클래스 선택자(_ 단독)</li>
+    <li class="_Theclass">클래스 선택자(_로 시작)</li>
+  </ul>
   <hr>
+  <script src="menu.js"></script>
+  <script src="../bunny.js"></script>
 </body>
+
 </html>

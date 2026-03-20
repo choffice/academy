@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    [type=text] {
+      background: pink;
+    }
+
+    [type=password] {
+      background: yellow;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <h1>속성 선택자</h1>
+  <hr>
+  <ul>
+    <li><input type="text"></li>
+    <li><input type="password"></li>
+  </ul>
+
+  <h3>data set을 활용한 속성 선택자</h3>
+  <ol>
+    <li data-role="one" data-email="one@abc.com">one@abc.com</li>
+    <li data-role="one-two" data-email="one-two@abc.com">one-two@abc.com</li>
+    <li data-role="one two" data-email="one two@abc.com">one two@abc.com</li>
+    <li data-role="onetwo" data-email="onetwo@abc.com">onetwo@abc.com</li>
+    <li data-role="zero one two" data-email="zero one two@abc.com">zero one two@abc.com</li>
+    <li data-role="zero-one two" data-email="zero-one two@abc.com">zero one two@abc.com</li>
+    <li data-role="zero one-two" data-email="zero one-two@abc.com">zero one-two@abc.com</li>
+    <li data-role="zero-one-two" data-email="zero-one-two@abc.com">zero-one-two@abc.com</li>
+  </ol>
+  <script src="menu.js"></script>
+  <script src="../bunny.js"></script>
+</body>
+
+</html>
