@@ -14,7 +14,22 @@
       background: yellow;
     }
 
+    /* -으로 연결된 부분만 제외*/
+    [data-role~=one] {
+      font-weight:bold; //1,3,5
+    }
+
+    /* -으로 연결된 부분만 제외*/
+    [data-email~=one] {
+      background: red; //3,5
+    }
     
+    /* 3. 속성값과 완전 일치, 시작시, '-' 포함, 제외(공백, 다른글자포함) :: 1,2 */
+    [data-role|='one'] {font-style:italic;}
+
+
+    /* 6. 속성값과 완전 일치 또는 포함될 때 ) :: 1,2,3,4,5,6,7,8 */
+    [data-role*='zero'] {color:gray;}
   </style>
 </head>
 
@@ -38,7 +53,8 @@
     <li data-role="zero-one-two" data-email="zero-one-two@abc.com">zero-one-two@abc.com</li>
   </ol>
   <script src="menu.js"></script>
-  <script src="../bunny.js"></script>
+  <script src="/bunny.js"></script>
+  <script src="/catchme.js"></script>
 </body>
 
 </html>

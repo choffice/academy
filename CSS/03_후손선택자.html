@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+@keyframes colorshow{
+      0%{background:salmon}
+      20%{background:#fff;}
+      40%{background:gray;}
+      60%{background:slategray;}
+      80%{background:darkslategray;}
+      100%{background:skyblue;}
+    }
+
+    body>div{padding:2%;margin-block:2%;;}
+    div>div{padding:.2%;}
+
+    /* 후손 선택자 :: 다양한 후손을 지정할 수 있다*/
+    body div{background:royalblue;}
+    /* 자손 선택자 :: 직계 */
+    body>div{background:red;}
+
+    body>div>div>h1{background:#fff;}
+
+
+    div:nth-of-type(3){ animation: .5s linear 0s infinite normal colorshow;}
+  </style>
+</head>
+
+<body>
+  <h1>후손 선택자</h1>
+  <hr>
+  <p><b>후손</b>은 하위 레벨에 있는 모든 태그를 선택</p>
+  <p><b>자손</b>은 바로 뒤 직계만 선택</p>
+  <br>
+  <div>1<h1>h1</h1></div>
+  <div>2<div><h1>h1</h1></div></div>
+  <div>3<div><div><h1>h1</h1></div></div></div>
+  <script src="menu.js"></script>
+  <script src="/bunny.js"></script>
+</body>
+
+</html>

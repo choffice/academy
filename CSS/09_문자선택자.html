@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   p:first-letter{font-size:5vw;}
+   /*화면 사이즈에 따라 첫 번째 줄만*/
+   p:first-line{color:brown;}
+   /*블록 설정한 부분의 속성이 변화*/
+   p::selection {background:pink;color:red;}
+   h1:before{content:"🤷‍♀️";}
+   h1:hover:after{content:" 너무 쉬워요~";}
+
+  </style>
+</head>
+
+<body>
+  <h1>문자 선택자</h1>
+  <p></p>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat sed non iusto voluptates at, nostrum dolorem unde, animi quis maiores quia, voluptate sunt accusamus odio suscipit. Similique illum quos et! Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae esse impedit dignissimos sapiente, aut repellat ipsam harum veritatis ab vero autem velit optio qui numquam, magni minima fugit fuga obcaecati? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis quas dolores, perspiciatis quibusdam eveniet dicta quis. Soluta mollitia itaque amet quo aliquid architecto, exercitationem modi non neque, rerum, eum possimus!</p>
+  <script src="menu.js"></script>
+  <script src="/bunny.js"></script>
+</body>
+
+</html>

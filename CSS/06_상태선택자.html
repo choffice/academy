@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :checked+input {
+      background: green;
+    }
+
+    [type=text]:focus {
+      background: red;
+    }
+
+    option:nth-of-type(1) {
+      background: red;
+    }
+
+    option:nth-of-type(2) {
+      background: yellow;
+    }
+
+    option:nth-of-type(3) {
+      background: green;
+    }
+
+    option:checked {
+      background: black;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>상태 선택자</h1>
+  <p><b>:checked</b> - 체크된 태그, input 중 radio, checkbox</p>
+  <p><b>:focus</b> - </p>
+  <p><b>:disabled</b> - </p>
+  <hr>
+  <label for="male">남</label>
+  <input type="radio" value="1" name="gender" id="male" checked="checked">
+  <input type="text" value="남">
+  <label for="female">여</label>
+  <input type="radio" value="2" name="gender" id="female">
+  <input type="text" value="여">
+
+  <!--select는 적용되지 않음-->
+  <select name="sel" id="sel">
+    <option value="r">빨강</option>
+    <option value="y" selected>노랑</option>
+    <option value="g">초록</option>
+  </select><br>
+  <input type="text" value="hello" readonly>
+  <input type="text" value="안녕" readonly>
+  <br>
+  <input type="checkbox" id="view1">
+  <label for="view1" onclick="disableText()">disabled</label>
+
+  <script src="menu.js"></script>
+  <script src="/bunny.js"></script>
+
+  <script>
+    function disableText() {
+      view1.disabled==false? 
+      (view1.disabled=true,view1.nextElementSibling.innerText='disable'):
+      (view1.disabled=false,view1.nextElementSibling.innerText='able');
+    }
+  </script>
+</body>
+
+</html>

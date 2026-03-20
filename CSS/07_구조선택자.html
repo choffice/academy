@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul li:nth-child(2n+1) {
+      color: blue;font-weight: bold;
+    }
+    ul span:nth-child(2n) {
+      color: red;font-weight: bold;
+    }
+
+    ul li:first-child{
+      color:green;
+    }
+
+    /*적용 안 됨*/
+    ul span:first-child{
+      color:green;
+    }
+
+    ul span:last-child{
+      color:green;
+    }
+
+    ol li:nth-of-type(2n){color:red;}
+    ol span:nth-of-type(2n+1){color:blue;}
+
+
+  </style>
+</head>
+
+<body>
+  <h1>구조 선택자</h1>
+  <p><b>:nth-child(n)</b> - 거꾸로 읽으면 좋다, 상위에서 n번째 '태그'(가 있는지)</p>
+  <p?><b>:nth-of-type(n)</b> - 거꾸로 읽으면 좋다, '태그'의 n번째</p>
+  <hr>
+  <ul>
+    <li>list / first-child</li>
+    <span>span 2 / nth-child(2)</span>
+    <li>list 2 / nth-child(3)</li>
+    <span>span 2 / nth-child(4)</span>
+    <li>list 3 / nth-child(5)</li>
+    <span>span 3 / nth-child(6)</span>
+    <li>list 4 / nth-child(7)</li>
+    <span>span 4 / nth-child(8)</span>
+    <li>list 5 / nth-child(9)</li>
+    <span>span / last-child</span>
+  </ul>
+
+<ol>
+  <li>li 1 first-of-type</li>
+  <span>span 1 first-of-type(1)</span>
+  <li>li 2 nth-of-type(2)</li>
+  <span>span 2 first-of-type(2)</span>
+  <li>li 3 nth-of-type(3)</li>
+  <span>span 3 first-of-type(3)</span>
+  <li>li 4 nth-of-type(4)</li>
+  <span>span 4 first-of-type(4)</span>
+  <li>li 5 nth-of-type(5)</li>
+  <span>span 5 first-of-type(5)</span>
+</ol>
+<script src="menu.js"></script>
+</body>
+
+</html>

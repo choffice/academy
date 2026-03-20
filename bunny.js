@@ -1,6 +1,6 @@
- document.body.innerHTML+='<img id="rabbit" src="https://cdn.pixabay.com/photo/2013/07/13/01/24/bunny-155674_1280.png" alt="" width="80" style="position:absolute;top=0;left=0;"></img>';
+ document.body.innerHTML+='<div id="rabbit" style="width:150px;height:150px;background:red;border:none;filter:drop-shadow(0 5px 2px rgba(0,0,0,.5));position:absolute;background:radial-gradient(100% 100% at 50% 53%,#000 3%,transparent 3%),radial-gradient(100% 100% at 55% 58%,rgba(217,217,217,1) 5%,transparent 5%),radial-gradient(100% 100% at 45% 58%,rgba(217,217,217,1) 5%,transparent 5%),radial-gradient(100% 100% at 62% 46%,#000 3%,transparent 3%),radial-gradient(100% 100% at 38% 46%,#000 3%,transparent 3%),radial-gradient(100% 100% at 50% 50%,rgba(143,61,61,1) 28%,transparent 28%),radial-gradient(100% 100% at 68% 26%,rgba(204,150,51,1) 8%,transparent 8%),radial-gradient(100% 100% at 68% 26%,rgba(143,61,61,1) 12%,transparent 12%),radial-gradient(100% 100% at 34% 26%,rgba(204,150,51,1) 8%,transparent 8%),radial-gradient(100% 100% at 34% 26%,rgba(143,61,61,1) 12%,transparent 12%),radial-gradient(100% 100% at 68% 26%,rgba(255,255,255,1) 15%,transparent 15%),radial-gradient(100% 100% at 34% 26%,rgba(255,255,255,1) 15%,transparent 15%),radial-gradient(100% 100% at 50% 50%,rgba(255,255,255,1) 31%,transparent 31%);"></div>';
 
 document.onmousemove = (e) =>{
-  rabbit.style.left = (e.clientX)+'px';
-  rabbit.style.top = (e.clientY)+'px';
+  rabbit.style.left = (e.clientX+10)+'px';
+  rabbit.style.top = (e.clientY+10)+'px';
 }

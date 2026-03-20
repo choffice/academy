@@ -3,11 +3,26 @@
 <META charset="UTF-8">
 <HEAD>
 <TITLE>경유페이지</TITLE>
-<STYLE></STYLE>
+<STYLE>
+  body{display:flex;justify-content: space-around;align-items: center;height:100vh;}
+H1{
+  color:#fff;
+}
+a{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+text-decoration: none;
+width:15vw;
+height:15vw;
+}
+a:nth-of-type(1){background:salmon;}
+a:nth-of-type(2){background:cadetblue;}
+a:hover{filter:invert(1);box-shadow:1em 1em 0 lightgray;transform:translate(-1em,-1em);transition-duration:.5s;}
+</STYLE>
 </HEAD>
 <BODY>
-<SCRIPT>
-location.href='https://choffice.github.io/academy/html/index.html';
-</SCRIPT>
+  <a href="css/index.html"><h1>HTML</h1></a>
+  <a href="html/index.html"><h1>CSS</h1></a>
 </BODY>
 </HTML>

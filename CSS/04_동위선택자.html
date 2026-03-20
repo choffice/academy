@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    [type=radio]~[type=text]{background:aqua;}
+    #on[type=radio]+label{background:aqua;}
+    #off[type=radio]+label{background:red;}
+    #off[type=radio]:checked~input{background:red;}
+
+    #off~input:nth-of-type(3){border:none;position:fixed;top:0;width:100vw;height:100vh;left:0;z-index:-1;}
+    [type=radio]:nth-of-type(4)~label{background:green;}
+  </style>
+</head>
+
+<body>
+  <h1>동위 선택자</h1>
+  <p>같은 레벨에서 뒤에 나오는 태그를 선택</p>
+  <p><b>~ : </b>선택자의 뒤에 나오는 모든 태그를 선택</p>
+  <p><b>+ : </b>선택자의 <u>바로</u> 뒤에 나오는 태그를 선택</p>
+  <hr>
+  <br>
+  <input type="radio" name="choice" id="on" checked><label for="on">ON</label>
+  <input type="radio" name="choice" id="off"><label for="off">OFF</label>
+    <input type="text" name="name" id="name">
+<br>
+  pre label <label for="prelabel">이전 라벨</label><input type="radio"><label for="postlabel">이후 라벨</label>
+  <script src="menu.js"></script>
+  <script src="/bunny.js"></script>
+</body>
+
+</html>
