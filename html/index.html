@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Welcom HTML</title>
+	<script>
+	</script>
+</head>
+
+<body>
+	<h1>Guest의 HTML 태그</h1>
+	<HR>
+	</HR>
+	<ol id="homemenu">
+	</ol>
+	<a href="login.html">
+		<button>로그인</button>
+	</a>
+	<a href="join.html">
+		<button>회원가입</button>
+	</a>
+	<script src="menu.js"></script>
+	<script src="bunny.js"></script>
+	<script>
+		let tit;
+		location.href.includes('id=') ?
+			tit = location.href.split('id=')[1].split('&')[0] :
+			tit = location.href.split('name=')[1].split('&')[0];
+		tit = decodeURIComponent(tit);
+		document.querySelector('h1').innerHTML = document.querySelector('h1').innerHTML.replace('Guest', tit);
+	</script>
+</body>
+
+</html>
