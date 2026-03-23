@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      //box-sizing: border-box;
+      list-style: none;
+    }
+
+    span {
+      background: yellow;
+      border: 2px solid;
+      padding: 5px;
+    }
+
+    nav {
+      margin: 20px;
+      margin: 20px 0 0 0;
+      margin: 10px 0;
+      background: orangered;
+      padding: 5px;
+      margin-top: 20px;
+      border: 2px dashed;
+      border-radius: 20px 0 0 20px;
+      border-radius: 20px;
+    }
+
+    .circle {
+      border-radius: 50%;
+      width: 50vh;
+      height: 50vh;
+      background: yellowgreen;
+      position: fixed;
+      bottom:10vh;
+      right:20vw;
+      font-size:30vh;
+      text-indent:6vw;
+      box-shadow: -6vw 0 0 rgba(0,100,100,.8),0 -3vw 0 paleturquoise inset;
+      text-shadow: .1em .1em 0 rgba(55,55,55,.3);
+      border-left:15px solid #fff;
+      border-bottom:8px solid gray;
+    }
+    .circle:first-letter{color:gold;vertical-align:top;font-size:20vh;}
+  </style>
+</head>
+
+<body>
+  <h1>css의 box 속성</h1>
+  <p>모든 태그는 사각형의 테두리를 가진다</p>
+  <hr>
+  <span>span box</span>
+  <nav>div box</nav>
+  <div class="circle">circle</div>
+  <script src="menu.js"></script>
+  <script src="/punch.js"></script>
+  <script>
+  </script>
+</body>
+
+</html>
