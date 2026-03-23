@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      list-style: none;
+    }
+
+    ol>li:nth-of-type(1),
+    ol>li:nth-of-type(4),
+    ol:first-of-type>li:nth-of-type(4)~li
+ {
+      list-style: '- ';
+    }
+  </style>
+</head>
+
+<body>
+  <h1>css 단위</h1>
+  <p>%, em, cm, mm, inch, px, pt, ex, ch 등</p>
+  <hr>
+  <p>일반적인 16px = 12pt = 1em = 100%</p>
+  <ol>
+    <li>절대적인 크기 pt, px, cm, mm, in, pc, Q</li>
+    <li><select id="absol0"></select>&nbsp;<span></span></li>
+    <ol hidden>
+      <li>pt :: 1pt = 1 in의 1/72</li>
+      <li>px :: 1px = 1 in의 1/96</li>
+      <li>cm :: 1cm = 1 in의 96/2.54</li>
+      <li>mm :: 1mm = 1 cm의 1/10</li>
+      <li>in :: 1in = 2.54 cm = 96px</li>
+      <li>pc :: 1pc = 1 in의 1/16</li>
+      <li>Q :: 1Q = 1 cm 1/40</li>
+    </ol>
+    <li style="color:transparent;">--</li>
+    <li>상대적인 크기 em, %</li>
+    <fieldset id="divem">
+      <p>rem(root em) :: px, pt가 절대적인 크기라면 em, %는 상대적인 크기<br>- 부모 요소의 크기에 따라 유연하게 변하는 반응형의 단위</p>
+      font size( 14px )
+      <div>
+        font size (14 * 1.2 = 16.8px)
+        <div>
+          font size(16.8 * 1.2 = 20.16px)
+          <div>
+            font size(20.16 * 1.2 = 24.192PX)
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <li>각도 단위 deg, grad, rad, turn&nbsp;<select id="absol1"></select>&nbsp;<span></span></li>
+    <ul>
+      <li>deg :: 도를 지칭, 360도가 완전한 원</li>
+      <li>grad :: 그라디안을 지칭, 400 그라디안이 완전한 원</li>
+      <li>rad :: 라디안을 지칭, 2π 라디안이 완전한 원</li>
+      <li>turn :: 턴을 지칭, 1턴이 완전한 원</li>
+    </ul>
+    <li>시간 단위 s, ms&nbsp;<select id="absol2"></select>&nbsp;<span></span></li>
+    <ul>
+      <li>s :: 초</li>
+      <li>ms :: 밀리초, 1000ms = 1s</li>
+    </ul>
+    <li>해상도 단위 dpi, dpcm, dppx, x&nbsp;<select id="absol3"></select>&nbsp;<span></span></li>
+    <ul>
+      <li>dpi :: 인치당 점의 수.</li>
+      <li>dpcm :: 센티미터당 점의 수.</li>
+      <li>dppx, x :: 픽셀당 점의 수.</li>
+    </ul>
+    <li>모바일 단위 vw, vh&nbsp;<select id="absol4"></select>&nbsp;<span></span></li>
+      <ul>
+        <li>vw :: 뷰포트 너비의 1%.</li>
+        <li>vh :: 뷰포트 높이의 1%.</li>
+      </ul>
+  </ol>
+  <script src="menu.js"></script>
+  <script>
+    let unitall = []
+   
+function select_setting(datafrom, selecto){
+   for (unitdes of datafrom.children) {
+    unitall.push({});
+    let datato = unitall[unitall.length-1];
+      datato[unitdes.innerText.split(' :: ')[0]] = unitdes.innerText.split(' :: ')[1];
+      selecto.innerHTML += '<option>' + unitdes.innerText.split(' :: ')[0] + '</option>';
+    }
+}
+
+select_setting(document.querySelectorAll('ol')[1],absol0);
+select_setting(document.querySelectorAll('ul')[0],absol1);
+select_setting(document.querySelectorAll('ul')[1],absol2);
+select_setting(document.querySelectorAll('ul')[2],absol3);
+select_setting(document.querySelectorAll('ul')[3],absol4);
+
+for(absolinput of document.querySelectorAll('[id^=absol]')){
+  console.log(absolinput);
+    absolinput.onchange = () => absolinput.nextElementSibling.innerText = unitall[parseInt(absolinput.id.replace('absol',''))][absolinput.value];
+    absolinput.nextElementSibling.innerText = unitall[parseInt(absolinput.id.replace('absol',''))][absolinput.value];
+};
+  </script>
+</body>
+
+</html>
