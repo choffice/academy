@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+    h1:first-letter {
+      font-variant: small-caps;
+      font-size: 2em;
+    }
+
+    @keyframes moveBox {
+      from {
+        left: 0;
+      }
+
+      to {
+        left: 300px;
+      }
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: skyblue;
+      position: relative;
+    }
+
+    .box:hover {
+      animation-name: moveBox;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-delay: 0s;
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes jump {
+      0% {left:0;top:30vh;}
+
+      20% {left:10vw;top:50vh;}
+
+      50% {left:20vw;top:20vh;}
+
+      70% {left:40vw;top:70vh;}
+
+      90% {left:60vw;top:40vh;}
+
+      100% {left:80vw;top:80vh;}
+    }
+
+    .secbox {
+      width: 15vw;
+      height: 15vw;
+      position: absolute;
+      background: yellow;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      animation: 1s ease-out 0s infinite alternate jump;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>animation 효과</h1>
+  <hr>
+  <p>@keyframes, from {} to {} 활용</p>
+  <div class="box"></div>
+  <div class="secbox"></div>
+  <script src="menu.js"></script>
+  <script>
+  </script>
+</body>
+
+</html>

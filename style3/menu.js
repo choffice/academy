@@ -1,4 +1,4 @@
-let tmlist = '그림자그라데이션/css내장함수'.split('/');
+let tmlist = '그림자그라데이션/css내장함수/애니메이션/애니메이션2/애니메이션3/반응형페이지/실습1'.split('/');
 
 if (location.href.includes('index.html')) {
   for (a_tm of tmlist) {
@@ -20,3 +20,4 @@ function typing(ptxttag, timers=1, longt = ptxttag.innerHTML) {
     }, n * (timers*100));
   }
 }
+document.head.innerHTML+='<link rel="stylesheet" href="/css/menustyle.css"/>';

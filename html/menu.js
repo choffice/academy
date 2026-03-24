@@ -10,3 +10,4 @@ topmenu.innerHTML='<li style="margin-inline:2%;"><a href="index.html" style="tex
 for(a_tm of tmlist){topmenu.innerHTML+='<li style="margin-inline:2%;background:green;padding:1%;"><a href="0'+(tmlist.indexOf(a_tm)+1)+'_'+a_tm.split(':')[1]+'.html" style="text-decoration: none;color:#fff;">'+a_tm.split(':')[0]+' 태그</a></li>';}
 
 document.querySelector('h1').style.marginTop = '10vh';}
+document.head.innerHTML+='<link rel="stylesheet" href="/css/menustyle.css"/>';

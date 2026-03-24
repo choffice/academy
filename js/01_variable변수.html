@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+body>*{margin:0;padding:0;box-sizing:border-box;list-style:none;}
+body{display:flex;justify-content: space-around;align-items: center;flex-direction: column;height:100vh;}
+h1>span{vertical-align: bottom;font-size:.8em;color:gray;}
+hr{width:80vw;height: 5px;background: gray;}
+hr~h3:before{content:"+ ";}
+hr~h3:after{content:" +";}
+ul{width:70vw;}
+ul>li{list-style:'- ';padding-block:1.5%;}
+hr:first-of-type~hr{width:20vw;border:3px;border-style: dotted;height:1px;background: none;margin-block: 5%;}
+ul>li>span{color:gray;}
+ul>li>span:hover{color:teal;}
+table{width:70vw;font-size:20px;text-align: center;}
+table th{background:teal;}
+table>tbody>tr>td:nth-of-type(1){background:orange;}
+table>tbody>tr>td:nth-of-type(2){background:lightyellow;border-bottom: 1px solid lightgray;}
+table>tbody>tr>td:nth-of-type(3){background:tan;}
+table>tbody>tr>td:nth-of-type(4){background:lightgray;}
+</style>
+<script>
+  //출력하기 위한 방법
+  console.log('hello console'); //개발자 도구의 console로 출력
+  //alert('HELLOW ALERT'); //document의 alert창에 출력
+  document.write('Hello document'); //document에 출력
+</script>
+</head>
+
+<body>
+  <h1>변수 <span>variable</span> 선언과 종류</h1>
+  <br>
+  <p>선언과 명명법, 종류</p>
+  <br>
+  <hr>
+<ul>
+ <li>변수의 이름은 영문자(대소문자)와 숫자, _, $만 사용</li>
+ <li>변수의 시작은 숫자를 제외한 나머지로 시작</li>
+ <li>변수의 이름에 두 단어 이상이 합쳐지면 Camel Expression 적용</li>
+ <li>변수명은 다른 사람이 보더라도 변수의 의미를 이해할 수 있는 이름을 사용</li>
+ <li>예약어(var, let, null, undefined, number, for, if ...) 제외</li>
+</ul>
+<hr>
+<h3>변수의 선언 (제어자, 변수명)</h3>
+<ul>
+  <li>num <span>: 초기화되지 않은 상태 (사용X)</span></li>
+ <li>num = 10 <span>: (선언) + 초기화, 암묵적 전역 변수로 생성되어 충돌 위험</span></li>
+ <li>var num = 10 <span>: 선언(제어자) + 초기화, 구버전</span></li>
+ <li>let num = 10 <span>: 선언(제어자) + 초기화, 신버전</span></li>
+ <li>const num = 10</li>
+</ul>
+ <hr>
+ <table>
+  <tr>
+    <th>제어자</th>
+    <th>재선언</th>
+    <th>재할당</th>
+    <th>범위(Scope)</th>
+  </tr>
+  <tr>
+    <td>var</td>
+    <td>O</td>
+    <td>O</td>
+    <td>함수</td>
+  </tr>
+  <tr>
+  <td>let</td>
+  <td>X</td>
+  <td>O</td>
+  <td>block</td>
+  </tr>
+  <tr>
+  <td>const</td>
+  <td>X</td>
+  <td>X</td>
+  <td>block</td>
+  </tr>
+ </table>
+ <hr>
+  <script src="menu.js"></script>
+</body>
+</html>

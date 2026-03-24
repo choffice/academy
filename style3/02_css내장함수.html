@@ -5,13 +5,144 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Document</title>
- <style>
-*{margin:0;padding:0;box-sizing:border-box;list-style:none;}
- </style>
 </head>
 
 <body>
+    <style>
+    :root {
+      --base-color: #f0f;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CSS 함수</h1>
+  <hr>
+  <ul>
+    <style>
+      .ishn:is(h1, h2, h3) {
+        color: red;
+      }
+
+      .notdiv:not(div) {
+        background-color: pink;
+      }
+    </style>
+    <li>결정함수 : is(), not()</li>
+    <pre>같은 클래스를 모두 넣어줬지만 h2는 is함수의 적용을 받고, div는 not으로 부정당해서 적용되는 스타일이 없으므로,
+      is(h2)이면서 not(div)인 h2만 스타일을 적용
+      => is()와 not()은 css에서 클래스를 정의하는 함수
+    </pre>
+    <div class="ishn notdiv">div</div>
+    <h2 class="ishn notdiv">h2</h2>
+<hr>
+    <style>
+      .my-var {
+        background: var(--base-color);
+      }
+    </style>
+    <li>변수함수 : var()</li>
+    <pre>--로 변수값을 정의하고 var()안에 변수명을 넣어 값을 대체어로 재사용하는 함수</pre>
+    <h3 class="my-var">not</h3>
+
+    <style>
+      a:not([style]):after {
+        content: attr(href);
+      }
+    </style>
     <hr>
+    <li>속성함수 : attr()</li>
+   <pre>해당 선택자에 속성을 적어주는 함수(속성을 노드텍스트처럼)</pre>
+    <a href="index.html">홈으로</a>
+ <hr>
+    <style>
+      .my-url {
+        width: 100px;
+        height: 100px;
+        background: url('/images/fruit.jpg');
+        background-size:contain;
+        background-repeat:no-repeat;
+      }
+    </style>
+    <li>url 함수 : url()</li>
+    <pre>외부의 소스를 당겨오는 함수</pre>
+    <div class="my-url">my url</div>
+<hr>
+    <style>
+      .my-color1 {
+        background-color: rgb(255, 0, 0);
+      }
+
+      .my-color2 {
+        background-color: rgba(255, 0, 0, 0.5);
+      }
+    </style>
+    <li>색상 함수 : rgb(), rgba(), hsl(), hsla()</li>
+    <h4 class="my-color1">my color1</h4>
+    <h4 class="my-color2">my color2</h4>
+<hr>
+    <style>
+      .my-calc {
+        width: calc(100% - 2rem);
+        background-color: lightgreen;
+      }
+    </style>
+    <li>계산 함수 : calc()</li>
+    <pre>*띄어쓰기 주의(값_단위 - 값_단위)</pre>
+    <div class="my-calc">계산할 수 있다.</div>
+<hr>
+    <style>
+      .my-min-max {
+        width: min(20vw, 30rem);
+        height: max(20vh, 20rem);
+        background: burlywood;
+      }
+    </style>
+    <li>최대 최소 함수 : max(), min()</li>
+    <pre>서로 다른 단위 간에 비교하여 더 큰/작은값을 반영 (반응형으로 스크린 비율이 달라질 때 유용)</pre>
+    <div class="my-min-max"> 두개의 인자 중 큰,작은 값을 반환하는 css함수</div>
+<hr>
+    <style>
+      .my-clamp {
+        font-size: clamp(2rem, 1rem + 3vw, 3rem);
+      }
+    </style>
+    <li>clamp 함수 : clamp()</li>
+    <pre>순서에 따라 스펙을 잘 정의해야 함, 사이즈 간의 우선순위</pre>
+    <div class="my-clamp"> 최소 크기, 이상적 크기, 최대 크기를 반환하는 함수</div>
+<hr>
+    <style>
+      .my-path {
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        font-weight: bold;
+        background: #ff7777;
+        margin-bottom: 20px;
+      }
+
+      .my-circle {
+        clip-path: circle(50%);
+        background: pink;
+      }
+
+      .my-triangle {
+        background: #ff7777;
+        clip-path: polygon(100px 0px, 200px 200px, 0 200px);
+      }
+
+      .my-polygon {
+        background: yellow;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+      }
+    </style>
+    <li>모양 관련 함수 : circle(), polygon()</li>
+    <p> clip-path로 모양을 사용하여 상자를 시각적으로 다르게 보여지는 함수</p>
+    <div class="my-path my-circle">clip-path : Circle</div>
+    <div class="my-path my-triangle">Triangle</div>
+    <div class="my-path my-polygon">polygon</div>
+  </ul>
   <script src="menu.js"></script>
 <script>
 </script>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+    section {
+      width: 90vw;
+      height: 80vh;
+      position: fixed;
+      top: 25vh;
+      left: 5vw;
+      visibility: hidden;
+      transition-duration: 1s;
+    }
+
+    section>* {
+      visibility: visible;
+    }
+
+    section:nth-of-type(1) {
+      transform: translate(0);
+    }
+
+    section:nth-of-type(2) {
+      transform: translate(40vw);
+    }
+
+    section:nth-of-type(1):hover {
+      transform: translate(15vw);
+    }
+    section:nth-of-type(2):hover {
+      transform: translate(0);
+    }
+
+    /*ID카드 실습*/
+    article>div {
+      width: 100px;
+      height: 100px;
+      background: center/cover no-repeat url(https://placehold.co/100x100);
+    }
+
+    h3:before {
+      content: "ID Card";
+    }
+
+    article:hover>h3:before {
+      content: "곰 부장";
+    }
+
+    article {
+      margin: 5% auto;
+      width: 250px;
+      height: 450px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px dimgray;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      padding-bottom: 30px;
+    }
+
+    article>p {
+      text-align: center;
+    }
+
+    article>p:first-letter {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    article>* {
+      margin-block: 6%;
+    }
+
+    article:hover {
+      box-shadow: 0 0 5px lightgray, 0 3px 5px dodgerblue;
+      transform: scale(1.2);
+      transition-duration: .5s;
+    }
+
+    article:hover>div {
+      transform: rotateY(360deg);
+      transition-duration: .5s;
+      background: radial-gradient(100% 100% at 50% 55%, rgba(0, 0, 0, 1) 3%, transparent 3%), radial-gradient(100% 100% at 54% 59%, rgba(234, 215, 179, 1) 5%, transparent 5%), radial-gradient(100% 100% at 46% 59%, rgba(234, 215, 179, 1) 5%, transparent 5%), radial-gradient(13% 100% at 50% 64%, rgba(0, 0, 0, 1) 3%, transparent 3%), radial-gradient(62% 100% at 50% 64%, rgba(235, 71, 71, 1) 7%, transparent 7%), radial-gradient(100% 100% at 61% 47%, #000 3%, transparent 3%), radial-gradient(100% 100% at 38% 47%, #000 3%, transparent 3%), radial-gradient(100% 100% at 50% 50%, rgba(143, 61, 61, 1) 28%, transparent 28%), radial-gradient(100% 100% at 70% 28%, rgba(235, 177, 71, 1) 7%, transparent 7%), radial-gradient(100% 100% at 70% 28%, rgba(143, 61, 61, 1) 11%, transparent 11%), radial-gradient(100% 100% at 30% 28%, rgba(235, 177, 71, 1) 7%, transparent 7%), radial-gradient(100% 100% at 30% 28%, rgba(143, 61, 61, 1) 11%, transparent 11%), 24% 95%/28% 33% no-repeat conic-gradient(from 90deg at 50% 50%, rgba(217, 217, 217, 1) 12%, transparent 12%), 18% 76%/33% 33% no-repeat conic-gradient(from 90deg at 50% 50%, rgba(217, 217, 217, 1) 12%, transparent 12%), 58% 121%/33% 33% no-repeat conic-gradient(from 0deg at 50% 50%, rgba(217, 217, 217, 1) 12%, transparent 12%), 58% 105%/33% 33% no-repeat conic-gradient(from 0deg at 50% 50%, rgba(217, 217, 217, 1) 12%, transparent 12%), 50% 114%/40% 40% no-repeat conic-gradient(from -22deg at 50% 50%, rgba(0, 0, 0, 1) 12%, transparent 12%), 50% 101%/40% 40% no-repeat conic-gradient(from 169deg at 50% 50%, rgba(0, 0, 0, 1) 6%, transparent 6%), 50% 100%/11% 31% no-repeat linear-gradient(0deg, rgba(200, 237, 249, 1) 100%, transparent 100%), radial-gradient(89% 100% at 50% 100%, rgba(62, 68, 116, 1) 42%, transparent 42%), rgba(198, 246, 85, 1);
+    }
+
+    /*네이버 로그인*/
+    section:nth-of-type(1) {
+      padding: 16px;
+    }
+
+    section:nth-of-type(1)>* {
+      width: 400px;
+    }
+
+    h2 {
+      color: forestgreen;
+      font-size: 40px;
+      text-align: center;
+      width: 300px;
+    }
+
+    :root {
+      --btnbord: lightgray;
+    }
+
+    section:nth-of-type(1)>ol {}
+
+    section:nth-of-type(1)>ol>nav {
+      display: flex;
+    }
+
+    section:nth-of-type(1)>ol>ul {}
+
+    section:nth-of-type(1)>ol>ul:nth-of-type(1) {}
+
+    section:nth-of-type(1)>ol>ul:nth-of-type(1) {}
+
+    section:nth-of-type(1)>ol>ul:nth-of-type(1)>li:nth-of-type(3) {
+      width: 100%;
+    }
+
+    section:nth-of-type(1)>ol>ul:nth-of-type(1)>li:nth-of-type(3)>input[type=button] {
+      width: 95%;
+      background: green;
+      color: #fff;
+      padding: 2% 5%;
+      font-size: 15px;
+      border-radius: 5px;
+    }
+
+    section:nth-of-type(1)>ol>ul:nth-of-type(2) {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    section:nth-of-type(1)>ol>ul:nth-of-type(2)>li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    section:nth-of-type(1)>ol>ul:nth-of-type(2)>li:nth-of-type(1) {
+      border-right: 2px solid var(--btnbord);
+    }
+
+    section:nth-of-type(1)>ol>ul:nth-of-type(2)>li:nth-of-type(2) {
+      border-inline: 1px solid var(--btnbord);
+    }
+
+    section:nth-of-type(1)>ol>ul:nth-of-type(2)>li:nth-of-type(3) {
+      border-left: 1px solid var(--btnbord)
+    }
+  </style>
+</head>
+
+<body>
+  <h1>실습1: ID 카드 만들기</h1>
+  <p>실습예제</p>
+  <hr>
+  <section>
+    <h2>NAVER</h2>
+    <ol>
+      <nav>
+        <button>
+          <div></div>ID/전화번호
+        </button>
+        <button>
+          <div></div>일회용 번호
+        </button>
+        <button>
+          <div></div>QR코드
+        </button>
+      </nav>
+      <ul>
+        <li>
+          <div><input type="text" placeholder="아이디 또는 전화번호"><input type="password" placeholder="비밀번호"></div>
+        </li>
+        <li><span><input type="checkbox">로그인 상태 유지</span><span>IP보안<b></b><input type="range" value="1" step="1" min="0"
+              max="1"></span></li>
+        <li><input type="button" value="로그인">
+        </li>
+      </ul>
+      <ul>
+        <li>비밀번호 찾기</li>
+        <li>아이디 찾기</li>
+        <li>회원가입</li>
+      </ul>
+    </ol>
+  </section>
+  <section>
+    <article>
+      <h3></h3>
+      <div></div>
+      <p>정부는 회계연도마다 예산안을 편성하여 회계연도 개시 90일전까지 국회에 제출하고, 국회는 회계연도 개시 30일전까지 이를 의결하여야 한다. 대법원장의 임기는 6년으로 하는 중</p>
+    </article>
+  </section>
+  <script>
+    let tmlist = '그림자그라데이션/css내장함수/애니메이션/애니메이션2/애니메이션3/반응형페이지/실습1'.split('/');
+
+    if (location.href.includes('index.html')) {
+      for (a_tm of tmlist) {
+        homemenu.innerHTML += '<li><a href="' + (tmlist.indexOf(a_tm) + 1 < 10 ? '0' + (tmlist.indexOf(a_tm) + 1) : (tmlist.indexOf(a_tm) + 1)) + '_' + a_tm + '.html">' + a_tm + '</a></li>'
+      }
+    } else {
+      document.body.innerHTML = '<menu id="topmenu" style="display:flex;justify-content: end;list-style:none;align-items:center;font-size:1vh;height:5vh;"></menu>' + document.body.innerHTML;
+      topmenu.innerHTML = '<li style="margin-inline:2%;"><a href="index.html" style="text-decoration:none;"><p style="background:center/contain no-repeat url(https://cdn.pixabay.com/photo/2015/12/28/02/58/home-1110868_1280.png);color:transparent;padding:2%;">메인 홈으로</p></a></li>';
+      for (a_tm of tmlist) { topmenu.innerHTML += '<li style="margin-inline:2%;background:green;padding:1%;"><a href="' + (tmlist.indexOf(a_tm) + 1 < 10 ? '0' + (tmlist.indexOf(a_tm) + 1) : (tmlist.indexOf(a_tm) + 1)) + '_' + a_tm + '.html" style="text-decoration: none;color:#fff;">' + a_tm + '</a></li>'; }
+
+      document.querySelector('h1').style.marginTop = '10vh';
+    }
+
+    function typing(ptxttag, timers = 1, longt = ptxttag.innerHTML) {
+      ptxttag.innerText = '';
+      for (let n = 0; n < longt.length; n++) {
+        setTimeout(() => {
+          ptxttag.innerHTML += longt[n];
+        }, n * (timers * 100));
+      }
+    }
+
+    typing(document.querySelector('article>p'), .3);
+  </script>
+</body>
+
+</html>

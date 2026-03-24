@@ -14,12 +14,19 @@
       <label for="id">ID</label> <input type="text" name="userid" required><br>
       <label for="pw">비밀번호</label> <input type="password" name="userpw" required><br>
       <label for="id">비밀번호 확인</label> <input type="password" name="userpw" required><br>
-      <label for="id">휴대폰</label> <select name="usermobile">
+      <label for="usermobile">휴대폰</label> <select id="usermobile">
         <option value="통신사" disabled>통신사</option>
         <option value="KT" selected>KT</option>
         <option value="SKT">SKT</option>
         <option value="LG">LG</option>
-      </select>&nbsp;<input type="number" value="010" name="userphnumber" placeholder="'-'없이 숫자만 입력"><br>
+        <option value="알뜰폰">알뜰폰</option>
+      </select><input id="tt" hidden disabled><br>
+      <input type="number" value="010" readonly>-
+      <input type="number">-
+      <input type="number">
+      <div id="numpad">
+        <ul></ul>
+      </div>
       <label for="email">이메일</label> <input type="text" name="usermailid">@<input type="text" name="usermailhost"><br>
       <button>가입</button>
       <a href="index.html"><input type="button" value="취소"></a>

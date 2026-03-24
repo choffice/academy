@@ -10,3 +10,4 @@ topmenu.innerHTML='<li style="margin-inline:2%;"><a href="index.html" style="tex
 for(a_tm of tmlist){topmenu.innerHTML+='<li style="margin-inline:2%;background:green;padding:1%;"><a href="'+(tmlist.indexOf(a_tm)+1<10?'0'+(tmlist.indexOf(a_tm)+1):(tmlist.indexOf(a_tm)+1))+'_'+a_tm+'.html" style="text-decoration: none;color:#fff;">'+a_tm+'</a></li>';}
 
 document.querySelector('h1').style.marginTop = '10vh';}
+document.head.innerHTML+='<link rel="stylesheet" href="/css/menustyle.css"/>';

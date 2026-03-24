@@ -1,0 +1,9 @@
+#homemenu{
+display:flex;justify-content:space-around;flex-wrap:wrap;align-content:space-around;width:300px;
+}
+#homemenu>li{width:80%;font-size:1.2em;display:flex;justify-content:center;align-items:center;border-radius:5px;box-shadow:2px 2px 0 dimgray;margin-block:2%;padding-block:2%;}
+#homemenu>li:nth-of-type(n){background:green;}
+#homemenu>li:nth-of-type(2n){background:dodgerblue;}
+#homemenu>li>a{text-decoration:none;color:#fff;}
+
+hr~a{}
