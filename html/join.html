@@ -5,6 +5,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #numpad {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+    position: fixed;
+  top:5vh;
+  right:30vw;
+}
+
+.nvw {
+  visibility: hidden;
+}
+
+#numpad>ul {
+  width: 150px;
+  height:150px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#numpad>ul li {
+  width: 30%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 2%;
+  background: turquoise;
+  box-sizing: border-box;
+}
+
+#numpad>ul li:active {
+  background: paleturquoise;
+  border: 3px inset;
+}
+
+input[type=number] {
+  width: 4em;
+}
+  </style>
 </head>
 
 <body>
@@ -26,12 +72,49 @@
       <input type="number">
       <div id="numpad">
         <ul></ul>
-      </div>
+      </div><br>
       <label for="email">이메일</label> <input type="text" name="usermailid">@<input type="text" name="usermailhost"><br>
       <button>가입</button>
       <a href="index.html"><input type="button" value="취소"></a>
     </form>
   </fieldset>
+  <script>
+    let numblank = document.querySelectorAll('[type=number]:not([readonly])');
+for (let nm = 0; nm < 10; nm++) { numpad.children[0].innerHTML += '<li onclick="padtouch(this)">' + nm + '</li>'; }
+numpad.children[0].innerHTML += '<li onclick="padtouch(this)">←</li>';
+numpad.children[0].innerHTML += '<li onclick="padtouch(this)">C</li>';
+
+let focusbl;
+function padtouch(selpad) {
+  switch(selpad.innerText){
+    case '←':
+    focusbl.value.length>1? focusbl.value=focusbl.value.substring(0,focusbl.value.length-1):focusbl.value='';
+    break;
+    case 'C':focusbl.value='';break;
+    default:
+  if (focusbl == numblank[0] && focusbl.value.length == 4)
+    focusbl = numblank[1];
+    if(focusbl.value.length < 4)
+  focusbl.value = focusbl.value + selpad.innerText;
+  if (focusbl == numblank[1] && focusbl.value.length >= 4) numpad.classList = 'nvw'; else focusbl.select();
+  }
+}
+
+[].forEach.call(numblank, (nbl) => {
+  nbl.onfocus = () => {
+    focusbl = nbl;
+    numpad.removeAttribute('class');
+  }
+  nbl.onkeydown = () => {
+    if(focusbl.value.length>=4) {event.preventDefault();
+    focusbl==numblank[0]?numblank[1].select():numpad.classList='nvw';}
+  }
+});
+
+//init
+numpad.classList = 'nvw';
+
+  </script>
 </body>
 
 </html>

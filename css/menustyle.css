@@ -7,3 +7,6 @@ display:flex;justify-content:space-around;flex-wrap:wrap;align-content:space-aro
 #homemenu>li>a{text-decoration:none;color:#fff;}
 
 hr~a{}
+a[href$="in.html"]{position:fixed;right:20vw;}
+a[href="login.html"]{top:30vh;}
+a[href="join.html"]{top:35vh;}
