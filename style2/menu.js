@@ -21,3 +21,7 @@ function typing(ptxttag, timers=1, longt = ptxttag.innerHTML) {
   }
 }
 document.head.innerHTML+='<link rel="stylesheet" href="/css/menustyle.css"/>';
+//orgroot corrector
+for(orroot of  document.querySelectorAll('[href^="/"]')){
+  orgroot.setAttribute('href',location.href.split('/')[1]+orgroot.getAttribute('href'));
+}
