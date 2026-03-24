@@ -13,6 +13,7 @@ document.querySelector('h1').style.marginTop = '10vh';}
 document.head.innerHTML+='<link rel="stylesheet" href="/css/menustyle.css"/>';
 
 //orgroot corrector
-for(orroot of  document.querySelectorAll('[href^="/"]')){
+if(location.href.includes('github.io')){
+for(orgroot of  document.querySelectorAll('[href^="/"]')){
   orgroot.setAttribute('href',location.href.split('/')[1]+orgroot.getAttribute('href'));
-}
+}}
