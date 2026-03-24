@@ -1,3 +1,5 @@
+document.head.innerHTML += '<link href="/css/style.css" rel="stylesheet">';
+
 document.body.innerHTML += '<div id="vs" style="width:50vh;height:100vh;position:fixed;left:40.25vw;top:-20vh;"><div style="width:100%;height:100%;transform:rotateX(180deg);background:center/contain no-repeat url(https://cdn.pixabay.com/photo/2020/11/12/08/38/chicken-5734786_1280.png);"></div></div>';
 
 document.body.innerHTML += '<div id="punchL" style="width:20vw;height:20vw;position:fixed;bottom:0;left:20vw;"><div style="background:center/contain no-repeat url(https://cdn.pixabay.com/photo/2013/07/12/16/55/mitt-151498_1280.png);width:100%;height:100%;transform:rotate(-30deg);"></div></div>';

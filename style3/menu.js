@@ -1,4 +1,4 @@
-let tmlist = 'css단위/글자속성/background/box속성/float속성/position/display속성/display(flex)'.split('/');
+let tmlist = '그림자그라데이션/css내장함수'.split('/');
 
 if (location.href.includes('index.html')) {
   for (a_tm of tmlist) {

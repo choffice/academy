@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+    i {
+      color: gray;
+      font-size:.8em;
+    }
+    i:before{content:"(";}
+    i:after{content:")";}
+
+    hr+div{
+      border:3px solid #000;
+      width: 150px;
+      height:150px;
+      position:relative;
+      overflow:auto;
+      /*부모의 태그를 넘어섰을 때 처리하기 위한 옵션
+       overflow: hidden, scroll, auto, visible(default), scroll; */
+    }
+    .box{width:100px;height:100px;}
+    .box:first-of-type{background:red;z-index:1;top:10px;left:10px;}
+    .box:nth-of-type(2){background:violet;z-index: 2;top:30px;left:30px;}
+    .box:nth-of-type(3){background:orange;z-index: 3;top:50px;left:50px;}
+    .box:nth-of-type(4){background:green;top:120px;left:120px;}
+    .box:nth-of-type(5){background:blue;top:90px;left:90px;}
+  </style>
+</head>
+
+<body>
+  <h1>position 속성</h1>
+  <h3>static<i>(default, 부모 기준)</i>, relative<i>부모 기준</i>, absolute<i>document 기준</i>, fixed<i>화면 기준</i></h3>
+  <p>부모 태그를 기준으로 위치를 잡을 때 : 부모(relative) 자식(absolute)</p>
+  <hr>
+  <div>
+    <div class="box" style="position:absolute;">absolute</div>
+    <div class="box" style="position:absolute;">absolute</div>
+    <div class="box" style="position:absolute;">absolute</div>
+    <div class="box" style="position:fixed;">fixed</div>
+  </div>
+  <p>*static: top, left 적용 불가</p>
+  <p>정부는 회계연도마다 예산안을 편성하여 회계연도 개시 90일전까지 국회에 제출하고, 국회는 회계연도 개시 30일전까지 이를 의결하여야 한다. 대법원장의 임기는 6년으로 하며, 중임할 수 없다. 국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의 임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여 집회된다. 국무위원은 국무총리의 제청으로 대통령이 임명한다. 연소자의 근로는 특별한 보호를 받는다. 국무총리 또는 행정각부의 장은 소관사무에 관하여 법률이나 대통령령의 위임 또는 직권으로 총리령 또는 부령을 발할 수 있다. 타인의 범죄행위로 인하여 생명·신체에 대한 피해를 받은 국민은 법률이 정하는 바에 의하여 국가로부터 구조를 받을 수 있다.</p>
+  <script src="menu.js"></script>
+  <script>
+  </script>
+</body>
+
+</html>

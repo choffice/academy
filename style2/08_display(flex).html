@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body * {
+      //margin: 0;
+      //padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+    .container {
+      background: yellow;
+      border: 2px solid black;
+      border-radius: 5px;
+    }
+
+    .item {
+      background: green;
+      margin: 5px;
+      border: 2px solid black;
+      border-radius: 5px;
+      color: white;
+    }
+
+    /*flex-wrap 설명*/
+    fieldset:nth-of-type(3) input[type=radio][value=nowrap]:checked~.container {
+      flex-wrap: nowrap;
+    }
+
+    fieldset:nth-of-type(3) input[type=radio][value=wrap]:checked~.container {
+      flex-wrap: wrap;
+    }
+
+    fieldset:nth-of-type(3) input[type=radio][value=wrap-reverse]:checked~.container {
+      flex-wrap: wrap-reverse;
+    }
+
+    /*justify-content 설명*/
+    [name=justify][value=flex-start]:checked~.container {
+      justify-content: flex-start;
+    }
+
+    [name=justify][value=flex-end]:checked~.container {
+      justify-content: flex-end;
+    }
+
+    [name=justify][value=center]:checked~.container {
+      justify-content: center;
+    }
+
+    [name=justify][value=space-between]:checked~.container {
+      justify-content: space-between;
+    }
+
+    [name=justify][value=space-around]:checked~.container {
+      justify-content: space-around;
+    }
+
+    [name=justify][value=stretch]:checked~.container {
+      justify-content: stretch;
+    }
+
+    /*align-items 설명*/
+    [name=align1][value=stretch]:checked~.container {
+      align-items: stretch;
+    }
+
+    [name=align1][value=flex-start]:checked~.container {
+      align-items: flex-start;
+    }
+
+    [name=align1][value=flex-end]:checked~.container {
+      align-items: flex-end;
+    }
+
+    [name=align1][value=center]:checked~.container {
+      align-items: center;
+    }
+
+    [name=align1][value=baseline]:checked~.container {
+      align-items: baseline;
+    }
+
+    /*align-content 설명*/
+    [name=align2][value=stretch]:checked~.container {
+      align-content: stretch;
+    }
+
+    [name=align2][value=flex-start]:checked~.container {
+      align-content: flex-start;
+    }
+
+    [name=align2][value=flex-end]:checked~.container {
+      align-content: flex-end;
+    }
+
+    [name=align2][value=center]:checked~.container {
+      align-content: center;
+    }
+
+    [name=align2][value=space-between]:checked~.container {
+      align-content: space-between;
+    }
+
+    [name=align2][value=space-around]:checked~.container {
+      align-content: space-around;
+    }
+
+    [name=align2][value=space-evenly]:checked~.container {
+      align-content: space-evenly;
+    }
+
+    details:open>summary:before {
+      content: "◀ 축소하기";
+      color: gray;
+    }
+
+    details>summary:before {
+      content: "▼ 자세히 보기";
+    }
+
+    details:open{
+      position:fixed;
+      top:10vh;
+      left:10vw;
+      width:80vw;
+      height:80vh;
+      background:rgb(181, 226, 185);
+      padding:2%;
+    }
+
+    details:open .container{
+    }
+  </style>
+  <script>
+    // window.onload = function () {
+    //   container1 = document.querySelector("#container1")
+    //   document.querySelector("#rbBlock").onclick = function () {
+    //     container1.style.display = "block";
+    //   }
+    //   document.querySelector("#rbFlex").onclick = function () {
+    //     container1.style.display = "flex";
+    //   }
+    //   document.querySelector("#rbInlineFlex").onclick = function () {
+    //     container1.style.display = "inline-flex";
+    //   }
+    // }
+
+    // function: 문서가 읽어지는 시점에서 별도의 기억공간에 저장되고 사용되는 시점에서 호출
+    function showGrp1(choice) {
+      cont1 = document.querySelector("#container1")
+      if (choice == "1") {
+        cont1.style.display = "block"
+      } else if (choice == "2") {
+        cont1.style.display = "flex"
+      } else if (choice == "3") {
+        cont1.style.display = "inline-flex"
+      }
+    }
+    function showGrp2(choice) {
+      cont2 = document.querySelector("#container2")
+      if (choice == "1") {
+        cont2.style.flexDirection = "row"
+      } else if (choice == "2") {
+        cont2.style.flexDirection = "column"
+      } else if (choice == "3") {
+        cont2.style.flexDirection = "row-reverse"
+      } else if (choice == "4") {
+        cont2.style.flexDirection = "column-reverse"
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h1>display flex 속성</h1>
+  <br>
+  <h3>&lt;부모 영역&gt;</h3>
+  <hr>
+
+  <fieldset>
+    <legend>container에 display속성을 block, flex, inline-flex로 변경</legend>
+    <p>flex는 기본적으로 float와 달리 contents영역의 크기가 동일하게 설정됨</p>
+    <details>
+      <summary> </summary>
+      <label for="rbBlock"><input type="radio" name="grp1" id="rbBlock" checked onclick="showGrp1(1)">block</label>
+      <label for="rbFlex"><input type="radio" name="grp1" id="rbFlex" onclick="showGrp1(2)">flex</label>
+      <label for="rbInlineFlex"><input type="radio" name="grp1" id="rbInlineFlex"
+          onclick="showGrp1(3)">inline-flex</label>
+      <div id="container1" class="container">
+        <div class="item">aaa <br>aaa</div>
+        <div class="item">bbbbbbbbbb</div>
+        <div class="item">ccccc</div>
+      </div>
+    </details>
+  </fieldset>
+  <!-- <script>
+    container1 = document.querySelector("#container1")
+    document.querySelector("#rbBlock").onclick = function() {
+      container1.style.display = "block";
+    }
+    document.querySelector("#rbFlex").onclick = function() {
+      container1.style.display = "flex";
+    }
+    document.querySelector("#rbInlineFlex").onclick = function() {
+      container1.style.display = "inline-flex";
+    }
+  </script> -->
+
+  <fieldset>
+    <legend>container에 배치 방향 설정, flex-direction </legend>
+    <details>
+      <summary> </summary>
+      <p></p>
+      <label for="rbRow"><input type="radio" name="grp2" id="rbRow" checked onclick="showGrp2(1)">row</label>
+      <label for="rbCol"><input type="radio" name="grp2" id="rbCol" onclick="showGrp2(2)">column</label>
+      <label for="rbRowRev"><input type="radio" name="grp2" id="rbRowRev" onclick="showGrp2(3)">row-reverse</label>
+      <label for="rbColRev"><input type="radio" name="grp2" id="rbColRev" onclick="showGrp2(4)">column-reverse</label>
+      <div id="container2" class="container" style="display: flex;">
+        <div class="item">aaa <br>aaa</div>
+        <div class="item">bbbbbbbbbb</div>
+        <div class="item">ccccc</div>
+      </div>
+    </details>
+  </fieldset>
+
+  <fieldset>
+    <legend>container에 줄넘김 처리, flex-wrap</legend>
+    <details>
+      <summary> </summary>
+      <p>컨테이너가 더 이상 아이템들을 한 줄에 담을 여유 공간이 없을 때</p>
+      <input type="radio" name="wrap" value="nowrap" checked>nowrap(기본) <input type="radio" name="wrap"
+        value="wrap">wrap
+      <input type="radio" name="wrap" value="wrap-reverse"> wrap-reverse
+      <div class="container" style="display: flex;width:170px">
+        <div class="item">aaa <br>aaa</div>
+        <div class="item">bbbbbbbbbb</div>
+        <div class="item">ccccc</div>
+      </div>
+    </details>
+  </fieldset>
+
+  <fieldset>
+    <legend>container에 x축 방향 정렬, justify-content</legend>
+    <details>
+      <summary> </summary>
+      <input type="radio" name="justify" value="flex-start" checked>flex-start(기본) <input type="radio" name="justify"
+        value="flex-end">flex-end <input type="radio" name="justify" value="center">center <input type="radio"
+        name="justify" value="space-between">space-between <input type="radio" name="justify"
+        value="space-around">space-around <input type="radio" name="justify" value="stretch">stretch
+      <div class="container" style="display: flex;">
+        <div class="item">aaa <br>aaa</div>
+        <div class="item">bbbbbbbbbb</div>
+        <div class="item">ccccc</div>
+      </div>
+    </details>
+  </fieldset>
+
+  <fieldset>
+    <legend>container에 y축 방향 정렬, align-items, 각 items들의 정렬</legend>
+    <details>
+      <summary> </summary>
+      <input type="radio" name="align1" value="stretch" checked>
+      stretch(기본) <input type="radio" name="align1" value="flex-start">flex-start <input type="radio" name="align1"
+        value="flex-end">flex-end <input type="radio" name="align1" value="center">center <input type="radio"
+        name="align1" value="baseline">baseline
+      <div class="container" style="display: flex; height: 200px;">
+        <div class="item" style="width: 20px;">bbbbbbbbbb</div>
+        <div class="item"><span style="font-size: 50px;">aaa</span></div>
+        <div class="item" style="margin-top: 100px;">ccccc</div>
+      </div>
+    </details>
+  </fieldset>
+
+  <fieldset>
+    <legend>container에 여러 행 정렬, align-content, 여러 줄들의 정렬</legend>
+    <details>
+      <summary> </summary>
+      <input type="radio" name="align2" value="stretch" checked>stretch
+      <input type="radio" name="align2" value="flex-start">flex-start
+      <input type="radio" name="align2" value="flex-end">flex-end
+      <input type="radio" name="align2" value="center">center
+      <input type="radio" name="align2" value="space-between">space-between
+      <input type="radio" name="align2" value="space-around">space-around
+      <input type="radio" name="align2" value="space-evenly">space-evenly
+      <div class="container" style="display: flex; flex-wrap: wrap;width: 11rem; height: 11rem;">
+        <div class="item">aaa</div>
+        <div class="item">bbbbbbbbbb</div>
+        <div class="item">ccccc</div>
+      </div>
+    </details>
+  </fieldset>
+
+  <hr style="height: 30px;background-color: antiquewhite;">
+  <h3>&lt;item 영역&gt;</h3>
+
+  <fieldset>
+    <legend>item에 기본 크기를 설정 flex-basis</legend>
+    <p>flex-basis가 0이면, 남는 공간을 비율로 나누겠다는 의미<br>auto(기본값), 0, 50%, 300px, 10rem, content</p>
+    <details>
+      <summary> </summary>
+      <style>
+        /* 작으면 70px, 크면 콘텐트 넓이 만큼 */
+        --.item1 {
+          flex-basis: 70px;
+        }
+
+        /* 작으면 콘텐트가 길어도 짤림 */
+        .item1 {
+          width: 70px;
+        }
+
+        /* 콘텐트를 아래로 줄바꿈 하게 함. */
+        --.item1 {
+          width: 70px;
+          word-wrap: break-word;
+        }
+
+        [name=basis]:nth-of-type(1):checked~.container .item {
+          flex-basis: auto;
+        }
+
+        [name=basis]:nth-of-type(2):checked~.container .item {
+          flex-basis: 0;
+        }
+
+        [name=basis]:nth-of-type(3):checked~.container .item {
+          flex-basis: 50%;
+        }
+
+        [name=basis]:nth-of-type(4):checked~.container .item {
+          flex-basis: 300px;
+        }
+
+        [name=basis]:nth-of-type(5):checked~.container .item {
+          flex-basis: 10rem;
+        }
+
+        [name=basis]:nth-of-type(6):checked~.container .item {
+          flex-basis: content;
+        }
+      </style>
+      <input type="radio" name="basis" checked>auto(기본값) <input type="radio" name="basis">0 <input type="radio"
+        name="basis">300px <input type="radio" name="basis">10rem <input type="radio" name="basis">content
+      <div class="container" style="display: flex;">
+        <div class="item1 item">aaa</div>
+        <div class="item1 item">bbbbbbbbbb</div>
+        <div class="item1 item">ccccc</div>
+      </div>
+    </details>
+  </fieldset>
+
+  <fieldset>
+    <legend>item에 기본 크기를 설정 flex-grow (분배)</legend>
+    <details>
+      <summary> </summary>
+      <input type="radio" name="grow" checked>0(기본값)
+      <input type="radio" name="grow">1
+      <style>
+        --.item2 {
+          flex-grow: 1;
+        }
+
+        /* 1:2:1의 비율로 세팅할 경우 콘텐트 나머지 공간을 비율로 조정함*/
+        .item2:nth-child(1) {
+          flex-grow: 1;
+        }
+
+        .item2:nth-child(2) {
+          flex-grow: 2;
+        }
+
+        .item2:nth-child(3) {
+          flex-grow: 1;
+        }
+
+        [name=grow]:nth-of-type(1):checked~.container .item {
+          flex-grow: 0;
+        }
+
+        [name=grow]:nth-of-type(2):checked~.container .item {
+          flex-grow: 1;
+        }
+      </style>
+      <div class="container" style="display: flex;">
+        <div class="item2 item">aaa</div>
+        <div class="item2 item">bbbbbbbbbb</div>
+        <div class="item2 item">ccccc</div>
+      </div>
+    </details>
+  </fieldset>
+
+  <fieldset>
+    <legend>flex-shrink는 flex-grow와 쌍을 이루는
+      속성으로, 아이템이 flex-basis의 값보다 작아질
+      수 있는지를 결정</legend>
+    <details>
+      <summary> </summary>
+      <p>flex-shrink는 0이면 flex-basis보다 크기가 자동으로 줄어들지 않는다.</p>
+      <p>flex-shrink는 1일때 해당 div는 크기가 유연하게 변한고 flex-basis보다 작아짐</p>
+      <input type="radio" name="shrink" checked>0 <input type="radio" name="shrink">1
+      <style>
+        .item3 {
+          flex-basis: 150px;
+          flex-shrink: 0;
+        }
+
+        .item3:nth-child(1) {
+          flex-shrink: 0;
+          width: 100px;
+        }
+
+        .item3:nth-child(2) {
+          flex-grow: 1;
+        }
+
+        [name=shrink]:nth-of-type(1):checked~.container .item {
+          flex-shrink: 0;
+        }
+
+        [name=shrink]:nth-of-type(2):checked~.container .item {
+          flex-shrink: 1;
+        }
+      </style>
+      <div class="container" style="display: flex; width: 350px;">
+        <div class="item3 item">aaa</div>
+        <div class="item3 item">bbbbbbbbbb asfd asd fasdfas</div>
+        <div class="item3 item">ccccc</div>
+      </div>
+    </details>
+  </fieldset>
+
+  <fieldset>
+    <legend>flex: flex-grow, flex-shrink, flex-basis를 합친 것</legend>
+    <details>
+      <summary> </summary>
+      <input type="radio" name="fullflex" checked checked>1
+      <!-- flex grow:1;shrink:1;basis:0; -->
+      <br><input type="radio" name="fullflex">0
+      <!-- flex grow:0;shrink:1;basis:0; -->
+       <br><input type="radio" name="fullflex">1 1 auto
+       <br><input type="radio" name="fullflex">1 500px
+      <style>
+        [name=fullflex]:nth-of-type(1):checked~.container .item {
+          flex: 1;
+        }
+            [name=fullflex]:nth-of-type(2):checked~.container .item {
+          flex: 0;
+        }
+            [name=fullflex]:nth-of-type(3):checked~.container .item {
+          flex: 1 1 auto;
+        }
+            [name=fullflex]:nth-of-type(4):checked~.container .item {
+          flex: 1 500px;
+        }
+
+      </style>
+      <div class="container" style="display: flex; width:350px;">
+        <div class="item2 item">aaa</div>
+        <div class="item2 item">bbbbbbbbbb</div>
+        <div class="item2 item">ccccc</div>
+      </div>
+    </details>
+  </fieldset>
+
+  <fieldset>
+    <legend>수직축으로 아이템 정렬 align-self</legend>
+    <p>align-items의 아이템 버전입니다. align-items가 전체 아이템의 수직축 방향 정렬이라면, align-self는 해당 아이템의 수직축 방향 정렬</p>
+    <p>flex-shrink는 1일때 해당 div는 크기가 유연하게 변한고 flex-basis보다 작아짐</p>
+    <input type="radio" name="aself">flex-shrink
+    <input type="radio" name="aself">flex-basis
+    <style>
+      .item4 {
+        margin: 3px;
+        padding: 2px;
+        border: 3px solid currentColor;
+        border-radius: 3px;
+        font-weight: bold;
+        background: #26ab1c;
+        transition: 0.4s;
+      }
+    </style>
+    <div class="container" style="display: flex; height: 15rem;">
+      <div class="item4">AAA</div>
+      <div class="item4" style="align-self: center;">BBB</div>
+      <div class="item4" style="align-self: flex-start;">CCC</div>
+      <div class="item4">DDD</div>
+      <div class="item4">EEE</div>
+    </div>
+  </fieldset>
+
+  <pre>
+    flex-grow, flex-shrink, flex-basis를 한 번에 쓸 수 있는 축약형 속성
+    flex-grow : 전체공간을 유연하게 재분할,
+    flex-shrink : 0보단 큰값이 들어오면 유연한게 크기가 조정됨.
+    flex-basis : 아이템의 기본 크기를 지정
+    flex: 1;
+    /* flex-grow: 1; flex-shrink: 1; flex-basis: 0%; */
+    flex: 1 1 auto;
+    /* flex-grow: 1; flex-shrink: 1; flex-basis: auto; */
+    flex: 1 500px;
+    /* flex-grow: 1; flex-shrink: 1; flex-basis: 500px; */    
+  </pre>
+
+  <pre>
+    각 아이템들의 시각적 나열 순서를 결정하는 속성 ::> B,C,A 순서
+    .item:nth-child(1) { order: 3; } /* A */
+    .item:nth-child(2) { order: 1; } /* B */
+    .item:nth-child(3) { order: 2; } /* C */    
+  </pre>
+
+  <pre>
+    숫자가 클수록 위로 올라감
+    .item:nth-child(2) {
+      z-index: 1;
+      transform: scale(2);
+    }   
+  </pre>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <script src="menu.js"></script>
+  <script>
+  </script>
+</body>
+
+</html>
