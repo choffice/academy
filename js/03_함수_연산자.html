@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+  </style>
+  <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>Processing - Operator <span>(연산자)</span></h1>
+  <hr>
+  <h3>산술 연산자</h3>
+  <p>Arithmetic Operator</p>
+  <ul>
+    <li subs>+ (합), - (차), * (곱), / (몫) 기본 연산자</li>
+    <script>
+      let result = 1 + 1; result = 1 - 1; result = 1 * 1; result = 1 / 1;
+    </script>
+    <li subs>% : 나머지를 구하는 연산자 (피지수%지수)</li>
+    <li subs>** : 제곱을 하는 연산자</li>
+    <br>
+    <script>
+      result = 10 % 3; result = 2 ** 2;
+    </script>
+    <li subbox><b>[팁]</b> 백팅 || <b>${변수명}</b>으로 변수값을 가지고 온다<br><br><mark>*주의! ' 가 아니라 `로 감싸야 함!!</mark></li>
+    <br>
+    <script>
+      const share = 10 / 7;
+      const remain = 10 % 7;
+      //부호에 따른 ${식별자}의 결과값 차이
+      console.log(`몫은 ${share}, 나머지는 ${remain}`); // `값을 가져온다
+      console.log('몫은 ${share}, 나머지는 ${remain}'); // '텍스트로 인식'
+    </script>
+    <ol>
+      <li>부호에 따른 ${식별자}의 결과값 차이</li>
+      <li>'?!console.log(`몫은 ${share}, 나머지는 ${remain}`); // `값을 가져온다</li>
+      <li>`?!console.log('몫은 ${share}, 나머지는 ${remain}'); // '텍스트로 인식'</li>
+    </ol>
+    <br>
+    <script>
+      console.log(7 + 7 + 7 + 7 + 7); //35 -- 숫자만의 합
+      console.log(7 + 7 + '7' + 7 + 7); //14777 -- 연속된 숫자만 연산+나머지 문자 그대로 인식
+      console.log(7 + 7 + 7 + 7 + '7'); //287 -- 예시2
+      console.log('7' + 7 + 7 + 7 + 7); //77777 -- 문자로 시작된 연산은 모두 문자로 인식 (예시3)
+
+      console.log(true + true + 0); //2
+      console.log(true + 2 + '참'); //3참
+      console.log(false + -2 + '참'); //-2참
+      console.log(true + '참' + 2); //true참2
+
+      console.log(false == 0); //true
+      console.log(false == undefined); //false
+      console.log(false == null); //false
+      console.log(null == undefined); //true
+      console.log(null === undefined); //false
+
+      console.log([]); // []
+      console.log([] + ''); //
+      console.log([] + '' + [1]); //1
+      console.log([] + [1] + [2]); //12
+      console.log([2] - [1] + [2]); //12
+      console.log([5] - [1] + [2]); //42
+      console.log([5] - [1] + [2, 2]); //42,2
+      console.log([5, 3] + [2, 2]); //5,32,2
+      console.log([5, 3] - [2, 2]); //NaN
+      console.log([5, 2] - [1] + [2, 2]); //NaN2,2
+    </script>
+    <br>
+    <ol>
+      <li>+ 연산 중의 문자 침범</li>
+      <li>console.log(7 + 7 + 7 + 7 + 7); //35 : 숫자만의 합</li>
+      <li>console.log(7 + 7 + '7' + 7 + 7); //14777 : 연속된 숫자만 연산+나머지 문자 그대로 인식</li>
+      <li>console.log(7 + 7 + 7 + 7 + '7'); //287 : 예시2</li>
+      <li>console.log('7' + 7 + 7 + 7 + 7); //77777 : 문자로 시작된 연산은 모두 문자로 인식 (예시3)</li>
+    </ol>
+    <br>
+    <ol>
+      <li>true(1)와 false(0), 그리고 문자의 연산</li>
+      <li>console.log(true + true + 0); //2</li>
+      <li>console.log(true + 2 + '참'); //3참</li>
+      <li>console.log(false + -2 + '참'); //-2참</li>
+      <li>console.log(true + '참' + 2); //true참2</li>
+    </ol>
+    <br>
+    <ol>
+      <li>null==undefined, 하지만 !=0 or !=false</li>
+      <li>console.log(false == 0); //true</li>
+      <li>console.log(false == undefined); //false</li>
+      <li>console.log(false == null); //false</li>
+      <li>console.log(null == undefined); //true</li>
+      <li>console.log(null === undefined); //false</li>
+    </ol>
+    <br>
+    <ol>
+      <li>배열의 연산 : +는 문자로, -는 숫자로 인식</li>
+      <li>console.log([]); // []</li>
+      <li>console.log([] + ''); // []가 문자열과 만나 빈문자가 됨</li>
+      <li>console.log([] + '' + [1]); //1 type string</li>
+      <li>console.log([] + [1] + [2]); //12 첫 번째 빈문자열에 따라서</li>
+      <li>console.log([2] - [1] + [2]); //12 차는 숫자로, 합은 문자로</li>
+      <li>console.log([5] - [1] + [2]); //42 위와 동일한 예</li>
+      <li>console.log([5] - [1] + [2, 2]); //42,2 합에서 ,까지 문자로</li>
+      <li>console.log([5, 3] + [2, 2]); //5,32,2 모두 문자 그대로</li>
+      <li>console.log([5, 3] - [2, 2]); //NaN 숫자로 인식할 수 없음</li>
+      <li>console.log([5, 2] - [1] + [2, 2]); //NaN2,2 차까진 오류</li>
+    </ol>
+  </ul>
+  <hr>
+  <h3>비교 연산자</h3>
+  <p>Comparison Operator</p>
+  <ul>
+    <li subbox>==, &lt;, &gt;, &ge;, &le;, !=, ===, !==</li>
+    <li><span>숫자, 문자, 날짜, 논리 등에 대한 비교*연산</span></li>
+    <script>
+      let n1 = 'a'; let n2 = 'b';
+      console.log(n1 == n2); //false
+      console.log(n1 === n2); //false : type까지 같아야 함
+      console.log(n1 < n2); //'a'.codePointAt() 97 < 'b'.codePointAt() 98
+      console.log(n2 - n1); //문자간 아스키코드의 비교는 되지만 바로 연산은 되지 않음
+      var n3 = 'a';
+      console.log(n1 == n3);
+      console.log(n1 === n3); //제어자나 변수 식별자는 관계 없다
+      //그러나 다음 같은 경우
+      console.log(1 == '1'); //같은 값으로 인식, true
+      console.log(1 == true); //같은 값으로 인식, true
+      console.log(true == '1'); //같은 값으로 인식, true
+      console.log(1 === '1'); //타입이 다르기 때문에 false
+    </script>
+    <ol>
+      <li>== 와 === 에 대해 //let n1 = 'a'; let n2 = 'b';var n3 = 'a';</li>
+      <li>console.log(n1 == n2); //false</li>
+      <li>console.log(n1 === n2); //false : type까지 같아야 함</li>
+      <li>console.log(n1 < n2); //'a'.codePointAt() 97 < 'b' .codePointAt() 98</li>
+      <li>console.log(n2 - n1); //문자간 아스키코드의 비교는 되지만 바로 연산은 되지 않음</li>
+      <li>console.log(n1 == n3);</li>
+      <li>console.log(n1 === n3); //제어자나 변수 식별자는 관계 없다</li>
+    </ol>
+    <ol>
+      <li>그러나 다음 같은 경우</li>
+      <li>console.log(1 == '1'); //같은 값으로 인식, true</li>
+      <li>console.log(1 == true); //같은 값으로 인식, true</li>
+      <li>console.log(true == '1'); //같은 값으로 인식, true</li>
+      <li>console.log(1 === '1'); //타입이 다르기 때문에 false</li>
+    </ol>
+  </ul>
+  <hr>
+  <h3>논리 연산자</h3>
+  <p>true를 1, false를 0, ||를 +, &&를 *으로 치환하여 0보다 큰지 본다
+  </p><br>
+  <table>
+    <tr style="color:paleturquoise;">
+      <th>입력</th>
+      <th>|| 논리합</th>
+      <th>&& 논리곱</th>
+    </tr>
+    <tr>
+      <td>true true</td>
+      <td>true</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>true false</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>false true</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>false false</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+  </table>
+  <ul>
+    <li>Truthy value<span>(true) 1) 0을 제외한 정수, 실수, Infinity, -Infinity</span></li>
+    <li style="color:transparent">Truthy value(true)<span> 2) 빈문자열("")을 제외한 모든 문자열</span></li>
+    <li style="color:transparent">Truthy value(true)<span> 3) 참조형 객체(Object, 내장객체, 배열, class)</span></li>
+    <li style="color:transparent">Truthy value(true)<span> 4) {} 빈 객체, [] 빈 배열, function</span></li>
+    <li style="color:transparent">Truthy value(true)<span> 5) DOM, BOM 사전 정의된 객체들</span></li>
+    <li>Falsy value<span>(false) 1) undefined, null</span></li>
+    <li style="color:transparent">Falsy value(false)<span> 2) NaN (Not a Number)</span></li>
+    <li style="color:transparent">Falsy value(false)<span> 3) 0, -0</span></li>
+    <li style="color:transparent">Falsy value(false)<span> 4) "", '', 빈문자열</span></li>
+    <li style="color:transparent">Falsy value(false)<span> 5) document.all, alert() 반환되는 값이 없어서 undefined가 됨</span></li>
+  </ul>
+  <hr>
+  <h3>연산자의 우선순위</h3>
+  <ul subbox>
+    <li subs>비교 연산자를 논리 연산자보다 우선한다</li>
+    <li subs>&&논리곱이 ||논리합에 우선한다</li>
+    <li subs> &&는 왼쪽이 falsy면 그대로 반환, truthy면 오른쪽 값을 반환한다</li>
+    <li subs>||는 왼쪽이 truthy면 그대로 반환, falsy면 오른쪽 값을 반환한다</li>
+  </ul>
+  <br>
+  <script>
+    const b1 = 1 < 2; const b2 = false;
+    console.log(b1 && b2); //true false의 논리곱 == false (1*0==0)
+    console.log(b1 && !b2) //true true의 논리곱 == true (1*1==1)
+    console.log("!b1&&(!b2||'A')<'a''):", !b1 && (!b2 || 'A') < 'a'); // 괄호 안 먼저, (1+1)=true(1)
+    console.log('1:', !b2 || 'A'); //괄호 안 먼저, (1+1)=true(1)
+    console.log('2:', true < 'a'); //비교연산자 먼저 1<1 == false(0)
+    console.log('3:', !b1 && false); // 0*0 = 0(false)
+    //논리곱의 나열에서 살아남는 값
+    console.log(1 && -1 && undefined); //t&t&f 인데 왜 마지막 값이지...?
+    console.log(0 && null && undefined); //첫 번째가 false이므로 그대로 0
+    console.log([] && {} && 1); //t && t && t 이므로 마지막 1
+    console.log('' && {} && 1); //첫 번째가 빈문자열이므로 그대로 빈값
+
+    //비교합 연산
+    console.log([] == false); //true []는 비교연산자에서 공백문자로 인식
+    console.log({} == false); //false {}는 비교연산자에서 함수(truthy) 인식
+    console.log('0' || null || undefined); //0이 false이므로 그대로 0
+    console.log(-1 || 0); //true false 중에는 true 승리
+    console.log(-1 && 0); //true false 니까 flase 승리
+    console.log(null || -1 || 1); //false true true니까 첫 번째 true 승리
+    console.log(null || -1 && 1); //true true 먼저니까 마지막 true에 false true니까 true 승리
+
+  </script>
+  <ol>
+    <li>논리곱의 예// const b1 = 1 < 2; const b2=false;</li>
+    <li>console.log(b1 && b2); //true false의 논리곱 == false (1*0==0)</li>
+    <li>console.log(b1 && !b2); //true true의 논리곱 == true (1*1==1)</li>
+    <li>console.log(!b1 && (!b2 || 'A') < 'a' ); // 괄호 안 먼저, (1+1)=true(1)</li>
+    <li>console.log('1:', !b2 || 'A'); //괄호 안 먼저, (1+1)=true(1)</li>
+    <li>console.log('2:', true < 'a' ); //비교연산자 먼저 1 < 1==false(0)</li>
+    <li>console.log('3:', !b1 && false); // 0*0 = 0(false)</li>
+  </ol>
+  <ol>
+    <li>논리곱의 나열에서 살아남는 값</li>
+    <li>console.log(1 && -1 && undefined); //t&t&f 인데 왜 마지막 값이지...?</li>
+    <li>console.log(0 && null && undefined); //첫 번째가 false이므로 그대로 0</li>
+    <li>console.log([] && {} && 1); //t && t && t 이므로 마지막 1</li>
+    <li>console.log('' && {} && 1); //첫 번째가 빈문자열이므로 그대로 빈값</li>
+  </ol>
+  <hr>
+  <h3>단항 연산자</h3>
+  <p> ++ 과 -- </p>
+  <ul subbox>
+    <li subs>출력 시점이 중요</li>
+    <li subs>n++을 그대로 출력하면 실행 전의 n이 출력</li>
+    <li subs>n++을 실행 후 출력하면 n+1이 출력</li>
+    <li subs>++n을 그대로 출력하면 n+1이 출력</li>
+    <li><mark>++n은 현재의 n+1 그 자체다, ++n은 값이고 n++는 과정이다</mark></li>
+  </ul>
+  <script>
+    let a = 1;
+    console.log(a = a + 1); //a는 1+1 = 2
+    console.log(a++); //n++ 현재 연산에 반영x (그대로 2), 다음 연산에서 반영(a++)
+    console.log(++a); //2가 반영된 상태 2+2가 됨 = 4
+    console.log(a); //a가 4로 변한 상태
+    x1 = 7; y1 = 3;
+    console.log(x1++, ++x1 + ++y1);
+  </script>
+  <hr>
+  <h3>대입 연산자</h3>
+  <p>=, =, -=, *=, /=, %=, **=</p>
+  <script>
+    let z1 = 1;
+    z1++; z1 = z1 + 1; z1 += 1;
+    console.log(z1);
+    z1 *= 2;
+    console.log(z1);
+    z1 = 5;
+    console.clear();
+    var z2 = 5; var z3 = 2; var z4 = 3;
+    z2 += z3++ * --z4; //z2 = 5+(2*2)
+    //z3=3, z4=2, "z2=9"
+    z3 *= z2 - z4++; //z3 = 3* (9-2)
+    //z4=3, z2=9, "z3=21" ... 변수에 넣는(=) 것은 일반 사칙연산 순서와 다르다: 맨 마지막
+    z4 = z2 %= z3; //z2 = 9%3, z2=3, z4=, z3=2
+    //=이 여러 개일 경우 우측항부터 계산한다? 아닌데 틀렸다..
+    var z2 = 5; var z3 = 2; var z4 = 3;
+       // z2 += z3++ * --z4; //z2 = 5+(2*2)
+    console.log('z2=',z2 += z3++ * --z4);
+     //z3 *= z2 - z4++; //z3 = 3* (9-2)
+    console.log('z3=',z3 *= z2 - z4++);
+    // z4 = z2 %= z3; //z2 = 9%3, z2=3, z4=, z3=2
+    console.log('z4=',z4 = z2 %= z3);
+  </script>
+  <hr>
+  <h3>삼항 연산자</h3>
+  <p>( 조건 ? ㅇㄹ참 : 거짓 )</p>
+  <script>
+    //var num = prompt('숫자를 적어주세요');
+    //console.log(isNaN(num)?'숫자가 아니예요':'숫자가 맞아요');
+    //console.log(num%2==0?'짝수예요':'홀수예요');
+  </script>
+  <hr>
+  <script src="menu.js"></script>
+</body>
+
+</html>

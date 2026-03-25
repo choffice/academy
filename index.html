@@ -1,34 +1,115 @@
 <!DOCTYPE html>
 <HTML lang="ko">
 <META charset="UTF-8">
+
 <HEAD>
-<TITLE>경유페이지</TITLE>
-<STYLE>
-  body{display:flex;justify-content: space-around;align-items: center;height:100vh;}
-H1{
-  color:#fff;
-}
-a{
-  display: flex;
-  justify-content: center;
-  align-items:center;
-text-decoration: none;
-width:15vw;
-height:15vw;
-}
-a:nth-of-type(1){background:salmon;}
-a:nth-of-type(2){background:cadetblue;}
-a:nth-of-type(3){background:cornflowerblue;}
-a:nth-of-type(4){background:gold;}
-a:nth-of-type(5){background:plum;}
-a:hover{filter:invert(1);box-shadow:1em 1em 0 lightgray;transform:translate(-1em,-1em);transition-duration:.5s;}
-</STYLE>
+  <TITLE>경유페이지</TITLE>
+  <STYLE>
+    body * {
+      box-sizing: border-box;
+    }
+
+    section {
+      margin: 20vh auto;
+      display: flex;
+      justify-content: space-around;
+      align-content: space-around;
+      width: 70vw;
+      height: 0vh;
+      flex-wrap: wrap;
+    }
+
+    H1 {
+      color: #fff;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      width: 200px;
+      height: 200px;
+      margin-block: 5%;
+    }
+
+    a:nth-of-type(1) {
+      background: salmon;
+    }
+
+    a:nth-of-type(2) {
+      background: cadetblue;
+    }
+
+    a:nth-of-type(4) {
+      background: cornflowerblue;
+    }
+
+    a:nth-of-type(5) {
+      background: gold;
+    }
+
+    a:nth-of-type(6) {
+      background: plum;
+    }
+
+    a:hover {
+      filter: invert(1);
+      box-shadow: 1em 1em 0 lightgray;
+      transform: translate(-1em, -1em);
+      transition-duration: .5s;
+    }
+
+    a:nth-of-type(3) {
+      display: flex;
+      flex-direction: column;
+      padding: 3% 0 10% 5%;
+      justify-content: space-between;
+      color: transparent;
+    }
+
+    a:nth-of-type(3):hover {
+      box-shadow: 1em 1em 0 lightgray inset, 0 -1em 0 lightgray inset;
+      transform: translate(0);
+      color:greenyellow;
+    }
+
+    a:nth-of-type(3)>span {
+      width: 100%;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    a:nth-of-type(3)>sub {
+      width: 100%;
+      text-align: right;
+      font-size: 2em;
+      font-style: italic;
+    }
+  </STYLE>
 </HEAD>
+
 <BODY>
-  <a href="html/index.html"><h1>HTML</h1></a>
-  <a href="style/index.html"><h1>CSS</h1></a>
-  <a href="style2/index.html"><h1>CSS2</h1></a>
-  <a href="style3/index.html"><h1>CSS3</h1></a>
-  <a href="js/index.html"><h1>JS</h1></a>
+  <section>
+    <a href="html/index.html">
+      <h1>HTML</h1>
+    </a>
+    <a href="style/index.html">
+      <h1>CSS 선택자</h1>
+    </a>
+    <a href="">
+    </a>
+    <a href="style2/index.html">
+      <h1>CSS 속성</h1>
+    </a>
+    <a href="style3/index.html">
+      <h1>CSS 모션</h1>
+    </a>
+    <a href="js/index.html">
+      <h1>JS</h1>
+    </a>
+  </section>
+  <script>let ndate = new Date(); document.querySelector('a:nth-of-type(3)').innerHTML = '<span>' + ndate.toString().split(' ')[3] + '<br>' + ndate.toString().split(' ')[1] + '<br>' + ndate.toString().split(' ')[2] + '</span><sub>' + ndate.toString().split(' ')[0] + '</sub>';</script>
 </BODY>
+
 </HTML>

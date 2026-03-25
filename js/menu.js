@@ -1,4 +1,4 @@
-let tmlist = '변수선언/변수의타입'.split('/');
+let tmlist = '변수선언/변수의타입/함수_연산자'.split('/');
 
 if (location.href.includes('index.html')) {
   for (a_tm of tmlist) {
@@ -13,7 +13,7 @@ if (location.href.includes('index.html')) {
 }
 
 function typing(ptxttag, timers=1, longt = ptxttag.innerHTML) {
-  ptxttag.innerText = '';
+  ptxttag.innerHTML = '';
   for (let n = 0; n < longt.length; n++) {
     setTimeout(() => {
       ptxttag.innerHTML += longt[n];
@@ -31,3 +31,18 @@ for(orgroot of document.querySelectorAll('[href^="/"]')){
 for(orgroot of document.querySelectorAll('[src^="/"]')){
   orgroot.setAttribute('src','/'+location.href.split('/')[3]+orgroot.getAttribute('src'));
 }}
+
+for(limark of document.querySelectorAll('ol li')){
+if(!limark.parentElement.children[0].innerHTML.includes('?!')||!limark.parentElement.innerHTML.includes('//')){
+limark.parentElement.children[0].classList='titline';
+}
+
+if(limark.innerHTML.includes('?!')){
+limark.innerHTML = '<linehead>'+limark.innerHTML.split('?!')[0]+'</linehead>'+limark.innerHTML.split('?!')[1];
+}
+if(limark.innerHTML.includes('//')){
+limark.innerHTML = limark.innerHTML.split('//')[0]+'<linetail>'+limark.innerHTML.split('//')[1]+'</linetail>';
+}
+
+limark.innerHTML=limark.innerHTML.replace('console.log(','콘솔(<input readonly value="').replace(');','">);')
+}
