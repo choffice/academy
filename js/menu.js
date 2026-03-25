@@ -1,4 +1,4 @@
-let tmlist = 'variable변수'.split('/');
+let tmlist = '변수선언/변수의타입'.split('/');
 
 if (location.href.includes('index.html')) {
   for (a_tm of tmlist) {

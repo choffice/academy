@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>자바스크립트 변수의 타입</h1>
+  <p>타입과 형변환</p>
+  <hr>
+  <h3>변수의 타입</h3>
+  <ul>
+    <li>원시타입(Primitive Type)<span> : 값 자체가 메모리에 직접 저장</span></li>
+    <li subs>number<span> : 숫자(정수, 실수)</span></li>
+    <script>
+      var score = 90; grade = 9.5;
+      console.log(score, typeof (score));
+      console.log(grade, typeof (grade));
+      console.log(typeof grade);
+      console.log(typeof typeof grade);
+      console.log(Infinity, typeof (Infinity)); //Infinity는 number
+    </script>
+    <li subs>bigint<span> : 숫자인데 매우 큰 수(n이 붙음), 크기가 아니라 표현방식</span></li>
+    <script>
+      var bigNum = 12312_333434_3434324_324234234_34324234n;
+      console.log(bigNum, typeof (bigNum));
+    </script>
+    <li subs>string<span> : 문자열</span></li>
+    <script>
+      console.log('hello World', typeof 'hellow World');
+      </script>
+    <li subs>boolean<span>: true, false</span></li>
+    <script>
+      console.log(true, typeof true);
+      console.log(false, typeof false);
+      </script>
+    <li subs>undefiend<span> : 값이 초기화되지 않을 때 값을 출력</span></li>
+    <script>
+      console.log(v_udf, typeof v_udf);
+      var v_udf;
+      let l_udf;
+      console.log(l_udf, typeof l_udf);
+      </script>
+    <li subs>null<span> : 값이 없음을 의도적으로 명시할 때 사용. *type은 object</span></li>
+    <script>
+      console.log(null, typeof null);
+      </script>
+    <li subs>symbol<span> : 절대 중복되지 않는 고유한 식별자를 만들 때 사용(ES6), 정의할 땐 <mark>Symbol()</mark>, type은 symbol</span></li>
+    <script>
+      console.clear();
+      var s = Symbol("Hello World!"); console.log(s, typeof s);
+    </script>
+    <li>참조타입(Referenced Type)<span> : </span></li>
+  </ul>
+  <script src="menu.js"></script>
+  <script>
+
+  </script>
+</body>
+
+</html>

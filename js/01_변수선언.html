@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="variable.css">
+  <script>
+    //출력하기 위한 방법
+    console.log('hello console'); //개발자 도구의 console로 출력
+    //alert('HELLOW ALERT'); //document의 alert창에 출력
+    document.write('Hello document'); //document에 출력
+  </script>
+</head>
+
+<body>
+  <h1>변수 <span>variable</span> 선언과 종류</h1>
+  <br>
+  <p>선언과 명명법, 종류</p>
+  <br>
+  <hr>
+  <ul>
+    <li>변수의 이름은 영문자(대소문자)와 숫자, _, $만 사용</li>
+    <li>변수의 시작은 숫자를 제외한 나머지로 시작</li>
+    <li>변수의 이름에 두 단어 이상이 합쳐지면 Camel Expression 적용</li>
+    <li>변수명은 다른 사람이 보더라도 변수의 의미를 이해할 수 있는 이름을 사용</li>
+    <li>예약어(var, let, null, undefined, number, for, if ...) 제외</li>
+  </ul>
+  <hr>
+  <h3>변수의 선언</h3>
+  <ul>
+    <li subbox>
+      <p>&lt;변수의 구조&gt; 제어자, 변수명=식별자</p>
+    </li>
+    <li>num <span>: 초기화되지 않은 상태 (사용X)</span></li>
+    <li style="text-decoration:line-through;">num = 10 <span>: (선언) + 초기화, 암묵적 전역 변수로 생성되어 충돌 위험</span></li>
+    <li>var num = 10 <span>: 선언(제어자) + 초기화, 구버전</span></li>
+    <li>let num = 10 <span>: 선언(제어자) + 초기화, 신버전</span></li>
+    <li>const num = 10</li>
+  </ul>
+  <br>
+  <table>
+    <tr>
+      <th>제어자</th>
+      <th>재선언</th>
+      <th>재할당</th>
+      <th>범위(Scope)</th>
+    </tr>
+    <tr>
+      <td>var</td>
+      <td>O</td>
+      <td>O</td>
+      <td>함수</td>
+    </tr>
+    <tr>
+      <td>let</td>
+      <td>X</td>
+      <td>O</td>
+      <td>block {}</td>
+    </tr>
+    <tr>
+      <td>const</td>
+      <td>X</td>
+      <td>X</td>
+      <td>block {}</td>
+    </tr>
+  </table>
+  <hr>
+  <h3>전역 변수와 지역변수</h3>
+  <p subbox>*지역(함수)에 들어가면 전역보다 지역을 우선한다<br>
+    *함수에 들어가지 않은 변수는 파일, document 안에서 유효하다.</p>
+  <sub>함수의 scope가 가지는 의미 : 서로 다른 함수에서 같은 이름의 변수를 쓸 수 있다는 점</sub>
+  <script src="menu.js"></script>
+  <script>
+    //제어자 var
+    var a = 10; var a = 20; //변수의 재선언 가능
+    //a = 30; //변수의 관리가 어려움
+    //a = 40; //변수의 재할당 가능
+    console.log(a);
+    function add1() {
+      var a = 50;
+      console.log("add1의 a:", + a); // 각 타입에 따라 다르게 표시
+      console.log("add1의 a:" + a); // 하나의 string
+      var a = ("add1의 a:", + a); // 숫자 a(50)로만 처리
+      console.log(typeof a, a);
+      var a = ("add1의 a:" + a); // 글자 "add1의 a: 50" 으로 처리
+      console.log(typeof a, a);
+    }
+    add1();
+
+
+    //제어자 let : 변수의 재선언이 바람직하지 못하여 최근 선호
+    let b = 10;
+    //let b = 20; 재선언이 불가하다
+    b = 20; //재할당이 가능
+    console.log('b는', b);
+    function add2() {
+      let b = 30; //지역변수 선언
+      console.log("add2의 b:" + b);
+    }
+    add2();
+
+
+    //제어자 const : 항상 제 위치 제 값으로만 정의되는 상수
+    const PI = 3.14;
+    const c = 10;
+    //const c = 20; //재선언 불가
+    //c = 20; //재할당 불가
+
+  </script>
+  <hr>
+  <h3>변수의 선언</h3>
+  <p style="display:flex;flex-wrap: nowrap;width:70vw;justify-content: space-around;" subbox><b
+      style="background:pink;padding:5%;">변수 선언의 3요소</b>
+    <span style="text-align: left;">
+      - 선언 : 제어자 + 식별자<br>
+      - 초기화 : 맨 처음의 할당<br>
+      - 할당<br>
+    </span>
+  </p>
+  <hr>
+  <h3>호이스팅과 참조에러</h3>
+  <ul>
+    <li style="list-style:none;text-indent:-1vh;">
+      <p subbox><b>hoisting</b><br><br>
+        자바스크립트는 실행 전에 변수 선언을 먼저 처리하는데 마치 코드 상단에 선언한 것처럼 사용한다. 그래서 변수 선언만 상단으로 가져가고 초기화는 해당 라인에서 진행하는 형태</p>
+    </li>
+    <li><span>*특징 : 선언은 상단으로, 초기값은 undefined, 에러는 안 나게</span>
+    </li>
+    <li>var : 선언 전에 사용 가능, 값은 초기화 되기 전 undefined</li>
+    <li>let : 선언 전에 사용 불가, 초기화 전 값은 undefined</li>
+    <li>const : 선언+초기화 전에 사용 불가, 최초 할당이 마지막 할당이므로</li>
+    <li><span>*참조(referenced)할 수 없는 TDZ(일시적 사각지대)가 발생</span></li>
+  </ul>
+  <table>
+    <tr>
+      <th>제어자</th>
+      <th>선언 전</th>
+      <th>초기화 전</th>
+    </tr>
+    <tr>
+      <td>var</td>
+      <td>사용 가능</td>
+      <td>사용가능(undefined)</td>
+    </tr>
+    <tr>
+      <td>let</td>
+      <td>사용불가</td>
+      <td>사용가능(undefined)</td>
+    </tr>
+    <tr>
+      <td>const</td>
+      <td>사용불가</td>
+      <td>사용불가</td>
+    </tr>
+  </table>
+  <hr>
+  <table>
+    <thead>
+      <tr>
+        <th>구분</th>
+        <th>var</th>
+        <th>let</th>
+        <th>제어자 없이 선언</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Scope</td>
+        <td>함수 스코프</td>
+        <td>블록 스코프</td>
+        <td>항상 전역 (함수 밖에서)</td>
+      </tr>
+      <tr>
+        <td>재선언</td>
+        <td>허용</td>
+        <td>에러</td>
+        <td>허용<br>전역에 이미 있으면 덮어씀</td>
+      </tr>
+      <tr>
+        <td>호이스팅</td>
+        <td>선언이 호이스팅됨 <br>(초기화 X)</td>
+        <td>선언만 호이스팅 <br>(TDZ 있음)</td>
+        <td>없음 / 암묵적 생성</td>
+      </tr>
+      <tr>
+        <td>strict mode</td>
+        <td>허용됨</td>
+        <td>허용됨</td>
+        <td><strong>에러 발생!</strong>
+          (엄격 모드에서)</td>
+      </tr>
+      <tr>
+        <td>전역 객체 등록</td>
+        <td>window.x에 등록됨</td>
+        <td>window.x에 없음</td>
+        <td>등록됨 (window.x)</td>
+      </tr>
+      <tr>
+        <td>동적 형변환 발생<br>(갱신)</td>
+        <td>가능</td>
+        <td>가능</td>
+        <td>가능</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <script>
+    let name; //변수의 선언
+    name = '길동'; // 변수의 초기화(할당 중의 첫 번째)
+    console.log(name);
+    console.clear();
+
+    //var의 호이스팅
+    console.log("x:" + x);
+    var x = 10; //var는 선언 전에 사용 가능, 값은 초기화되기 전에 undefined로 처리
+
+    //let, const의 호이스팅
+    //console.log('y:'+y); //--> Referenced 참조에러
+    let y; //let은 선언되기 전에 사용할 수 x, 역시 초기화 전에 undefined
+    //그러나 실제로 호이스팅은 되고 있지만 볼 수 없에 TDZ에 있는 것
+    //Temporal Dead Zone(일시적 사각지대) --> 자바에서만 보이는 특징
+    //const t; //const는 선언+초기화까지 되어야 한다, 왜냐하면 최초의 할당이 마지막 할당인 제어자이기 때문에
+  </script>
+</body>
+
+</html>
