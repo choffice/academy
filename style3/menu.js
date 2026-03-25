@@ -25,8 +25,8 @@ document.head.innerHTML+='<link rel="stylesheet" href="/css/menustyle.css"/>';
 //orgroot corrector
 if(location.href.includes('github.io')){
 for(orgroot of document.querySelectorAll('[href^="/"]')){
-  orgroot.setAttribute('href',location.href.split('/')[3]+orgroot.getAttribute('href'));
+  orgroot.setAttribute('href','/'+location.href.split('/')[3]+orgroot.getAttribute('href'));
 }
 for(orgroot of document.querySelectorAll('[src^="/"]')){
-  orgroot.setAttribute('src',location.href.split('/')[3]+orgroot.getAttribute('src'));
+  orgroot.setAttribute('src','/'+location.href.split('/')[3]+orgroot.getAttribute('src'));
 }}
