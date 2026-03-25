@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="variable.css">
 </head>
 
-<body>
-  <h1>자바스크립트 변수의 타입</h1>
+<>
+  <h1>자바스크립트 변수의 타입 <span>typeof</span></h1>
   <p>타입과 형변환</p>
   <hr>
   <h3>변수의 타입</h3>
@@ -33,34 +33,79 @@
     <li subs>string<span> : 문자열</span></li>
     <script>
       console.log('hello World', typeof 'hellow World');
-      </script>
+    </script>
     <li subs>boolean<span>: true, false</span></li>
     <script>
       console.log(true, typeof true);
       console.log(false, typeof false);
-      </script>
+    </script>
     <li subs>undefiend<span> : 값이 초기화되지 않을 때 값을 출력</span></li>
     <script>
       console.log(v_udf, typeof v_udf);
       var v_udf;
       let l_udf;
       console.log(l_udf, typeof l_udf);
-      </script>
+    </script>
     <li subs>null<span> : 값이 없음을 의도적으로 명시할 때 사용. *type은 object</span></li>
     <script>
       console.log(null, typeof null);
-      </script>
+    </script>
     <li subs>symbol<span> : 절대 중복되지 않는 고유한 식별자를 만들 때 사용(ES6), 정의할 땐 <mark>Symbol()</mark>, type은 symbol</span></li>
     <script>
-      console.clear();
       var s = Symbol("Hello World!"); console.log(s, typeof s);
     </script>
-    <li>참조타입(Referenced Type)<span> : </span></li>
+    <li>
+      <script>document.write('-'.repeat(80));</script>
+    </li>
+    <li>참조타입(Referenced Type)<span> : 주소값, 주소에 가면 집합군을 접근</span></li>
+    <li subbox style="text-align: left;">
+      - 1)함수의 이름 그대로 타입을 보는 것과, 2)함수를 작동()시키고 타입을 보는 것은<br>각각 1) function 타입, 2) object 또는 return 값의 타입<br><br>
+      - 변수에 담을 때도<br>function()으로 담으면 변수 자체가 (클래스의) 함수명이 되고,<br>함수명()으로 담으면 리턴값이 담기는 것 </li>
+    <li subs>object</li>
+    <script>
+      let student = {
+        name: '고길동', age: 10, job: function () { console.log('소드마스터'); }
+      }
+      student.job();
+      console.log('student', typeof student, '\n', 'student-job', typeof student['job']);
+    </script>
+    <li subs>Array(object)</li>
+    <script>
+      let arr = [0, 1, 3, 4]; console.log(arr, typeof arr);
+    </script>
+    <li subs>function</li>
+    <script>
+      function add(a, b) { return a + b; }
+      console.log(console.log(add(1, 3)), typeof (add));
+    </script>
+    <li subs>DOM</li>
+    <script>
+      console.log('document :', typeof document);
+      console.log('window :', typeof window);
+    </script>
+    <li subs>내장 객체(Date, Math, ...)</li>
+    <script>
+      const d = new Date();
+      console.log(d, typeof d);
+    </script>
   </ul>
+  <hr>
+  <h3>변수의 형 변환</h3>
+  <ul>
+    <li subs>var tot = 100으로 초기화했을 때, <span>... type은 number</span></li>
+    <li subs>tot = true로 할당했을 때, <span>... type은 boolean</span></li>
+    <li subbox>var와 let은 타입 변환이 자유롭다(자바스크립트 특징)</li>
+    <script>
+      console.clear();
+      var tot = 100; console.log(typeof tot);
+      tot = true; console.log(typeof tot);
+    </script>
+  </ul>
+  <hr>
   <script src="menu.js"></script>
   <script>
 
   </script>
-</body>
+  </body>
 
 </html>

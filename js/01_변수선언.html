@@ -157,6 +157,26 @@
     </tr>
   </table>
   <hr>
+  <h3>변수의 scope</h3>
+  <span>var의 scope</span>
+  <script>
+    if(true) var scopeVar = 10;
+    console.log('scopeVar:', scopeVar); //함수 외는 전역변수
+    function tmp(){
+      var scopeFncVar = 20;
+    }
+    //console.log('scopeFncVa:', scopeFncVar); // 함수 안에서만 유효
+
+console.clear();
+    if(true) {let scopeLet = 10;}
+    //console.log('scopeLet:', scopeLet); //블록 안에서만 유효
+    function tmp2(){
+      let scopeFncLet = 20;
+    }
+    //console.log('scopeFncLet:', scopeFncLet); // 블록 안에서만 유효
+    
+    
+  </script>
   <table>
     <thead>
       <tr>
@@ -211,7 +231,6 @@
     let name; //변수의 선언
     name = '길동'; // 변수의 초기화(할당 중의 첫 번째)
     console.log(name);
-    console.clear();
 
     //var의 호이스팅
     console.log("x:" + x);
