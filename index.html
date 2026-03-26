@@ -10,13 +10,12 @@
     }
 
     section {
-      margin: 20vh auto;
+      margin: 0 auto;
       display: flex;
+      width: 90vw;
+      height: 100vh;
       justify-content: space-around;
-      align-content: space-around;
-      width: 70vw;
-      height: 0vh;
-      flex-wrap: wrap;
+      align-items:center;
     }
 
     H1 {
@@ -61,7 +60,7 @@
     }
 
     a:nth-of-type(3) {
-      display: flex;
+      display: none;
       flex-direction: column;
       padding: 3% 0 10% 5%;
       justify-content: space-between;
@@ -71,7 +70,7 @@
     a:nth-of-type(3):hover {
       box-shadow: 1em 1em 0 lightgray inset, 0 -1em 0 lightgray inset;
       transform: translate(0);
-      color:greenyellow;
+      color: greenyellow;
     }
 
     a:nth-of-type(3)>span {
@@ -85,6 +84,20 @@
       text-align: right;
       font-size: 2em;
       font-style: italic;
+    }
+
+    @media screen and (max-width:900px) {
+      a:nth-of-type(3) {
+        display: flex;
+      }
+
+      section {
+        margin: 20vh auto;
+        flex-wrap: wrap;
+        width: 70vw;
+        height: 0vh;
+        align-content: space-around;
+      }
     }
   </STYLE>
 </HEAD>
