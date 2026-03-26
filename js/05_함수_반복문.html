@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+  </style>
+  <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>반복문 :: loop<br><span><sub>for, while, do while, for in</sub></span></h1>
+  <p>선언과 명명법, 종류</p>
+  <hr>
+  <h3>for</h3>
+  <ul subbox>
+    <li><b>for(초기값; 조건; 증감;) 명령문</b></li>
+    <li>block안에서 작동하면서 상수가 아닌 let을 쓴다</li>
+  </ul>
+  <br>
+  <ol>
+    <li>예제</li>
+    <li>무한루프 for(;;){} //조건이 없으면 무한루프</li>
+    <li>1씩 증가?! console.log(for(let i=1; i<10; i++) console.log(i););!!</li>
+    <li>구구단?! console.log(for(let i=1; i<10; i++) console.log(`9x${i}:${9*i}`));</li>
+    <li>
+      이중for문?! 코드보기<textarea>for(let i=2;i<10;i+=3){
+for(let j=1;j<10;j++) console.log(`${i} x ${j} : ${i*j} / ${i+1} x ${j} : ${(i+1)*j}${i+2<9?` / ${i+2} x ${j} : ${(i+2)*j}`:``}`);
+}</textarea>
+    </li>
+  </ol>
+  <hr>
+  <h3>while</h3>
+  <ul subbox>
+    <li><b>while(조건) {}</b></li>
+  </ul>
+  <br>
+  <ol>
+    <li>예제</li>
+    <li>숫자 맞추기?! 코드보기<textarea>
+let howtimes = 0;
+let randed = Math.floor(Math.random()*100)+1;
+while(true){
+  howtimes++;
+  let inputed = prompt('==숫자 맞추기 게임==\n1~100사이의 숫자를 입력하세요');
+  if(randed==inputed){
+    //정답일 때
+    alert(`정답이에요!(시도한 횟수 : ${howtimes}회)`);
+    howtimes=0;break;
+  }else if(Math.abs(randed-inputed)<5){
+    //근사값일 때
+    alert('비슷해요!! 좀만 더!');
+  }else if(randed>inputed){
+    //더 작게 부를 때
+    alert('더 위로!');
+  }else {
+    //더 크게 부를 때
+    alert('더 아래로!');
+  }
+}
+    </textarea></li>
+  </ol><br>
+  <ul subbox>
+    <li><b>do {}while(조건)</b></li>
+    <li>일단 실행한 후 조건을 따진다</li>
+  </ul>
+  <br>
+  <ol>
+    <li>예제</li>
+    <li>폭탄막기?! 코드보기<textarea>
+let keyn = Math.floor(Math.random()*10)+1;
+let key_timer = 5;
+do{
+  let inputed = prompt('폭탄이 터지기 5초 전!\n1자리 비밀번호를 맞춰라!\n1~10사이');
+      if(inputed==keyn){ alert('띡! 멈췄다!'); break;
+      }else {--key_timer; key_timer==0? alert('실패다..펑!'):alert(`띡띡띡띡...힌트는 없다, 다시! (남은 기회 : ${key_timer}번)`);
+    }
+}while(key_timer>0);
+    </textarea></li>
+  </ol>
+  <br>
+  <ul subbox>
+    <li>
+      <b>setInterval(익명함수, 시간)</b> :: 스스로가 반복
+    </li>
+  </ul>
+  <hr>
+  <script src="menu.js">
+  </script>
+  <script>
+  </script>
+</body>
+
+</html>

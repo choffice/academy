@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+*{margin:0;padding:0;box-sizing:border-box;list-style:none;}
+ </style>
+ <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>break와 continue</h1>
+  <p>반복 구문에서 사용</p>
+  <hr>
+  <ol>
+<li>예제</li>
+<li>코드보기<textarea>
+for(let ii=0;ii<10;ii++){
+  let tmpp = ii + 1;
+  if(tmpp % 2 == 0) continue; //2의 배수에서는 무시
+  console.log(tmpp);
+}
+</textarea></li>
+<li>코드 해석?! 2의 배수일 때 지나가므로 콘솔을 실행x</li>
+<li>코드보기<textarea>
+let jj = 0;
+while(true){
+  console.log(jj);
+  if (jj++ == 10) break;
+}
+</textarea>
+<li>코드 해석?! 10까지 더하고 끝낸다</li>
+  </ol>
+<script src="menu.js">
+</script>
+</body>
+</html>

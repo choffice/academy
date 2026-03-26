@@ -27,6 +27,21 @@
       else if (answer > 8 && answer < 12) alert('가을이네요~');
       else alert('겨울이네요~');
     }
+
+    function rof(tg_arrlong, rs_rof = false) {
+      switch (typeof tg_arrlong) {
+        case 'object': rs_rof = tg_arrlong[Math.floor(Math.random() * tg_arrlong.length)];
+          break;
+        case 'number': rs_rof = Math.floor(Math.random() * (tg_arrlong + 1));
+          break;
+        case 'string':
+          if (tg_arrlong.includes('/'))
+            rs_rof = tg_arrlong.split('/')[Math.floor(Math.random() * tg_arrlong.split('/').length)];
+          else rs_rof = tg_arrlong;
+          break;
+      }
+      return rs_rof;
+    }
   </script>
 </head>
 
@@ -44,21 +59,28 @@
   <br>
   <ol>
     <li>if else</li>
-    <li>if?! console.log(if(1) console.log('if문 실행')); //조건이 참일 경우</li>
-    <li>else?! console.log(if(0) console.log('if문 미실행'); else console.log('else문 실행'););!! //조건이 거짓일 경우</li>
+    <li>if?! console.log(if(1) 'if문 실행'); //조건이 참일 경우</li>
+    <li>else?! console.log(if(0) 'if문 미실행'; else 'else문 실행';);!! //조건이 거짓일 경우</li>
+    <li>삼항연산자?! console.log(isNaN('가을')?'숫자가 아닙니다':'숫자입니다';);</li>
   </ol>
   <br>
   <ol>
     <li>if else if</li>
     <li>다중조건?! if(조건1) else if(조건2) else {default}</li>
-    <li>예제?! console.log(if(1==2) console.log('a'); else if(1==1) console.log('b'); else console.log('c'));!! //범위가 좁은
+    <li>예제?! console.log(if(1==2) 'a'; else if(1==1) 'b'; else 'c');!! //범위가 좁은
       거부터 시작해라</li>
-      <li>실습?! 태어난 달의 계절 맞히기 console.log(seasonBirth());</li>
+    <li>실습?! 태어난 달의 계절 맞히기 console.log(seasonBirth());</li>
   </ol>
   <hr>
-  <h3></h3>
-  <script src="menu.js">
-  </script>
+  <h3>swithc case 문</h3>
+  <p>비연속적인 데이터의 비교구문을 할 경우</p>
+  <ol>
+    <li>switch(데이터){case (조건): break; default: (기본값)}</li>
+    <li>코드보기<textarea></textarea></li>
+  </ol>
+  <hr>
+  <script src="menu.js"></script>
+  <script>document.querySelector('textarea').innerHTML = rof;</script>
 </body>
 
 </html>

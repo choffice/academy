@@ -1,4 +1,4 @@
-let tmlist = '변수선언/변수의타입/함수_연산자/함수_조건'.split('/');
+let tmlist = '변수선언/변수의타입/함수_연산자/함수_조건/함수_반복문/break_continue/Array'.split('/');
 
 if (location.href.includes('index.html')) {
   for (a_tm of tmlist) {
@@ -21,6 +21,26 @@ function typing(ptxttag, timers = 1, longt = ptxttag.innerHTML) {
   }
 }
 
+function rof(tg_arrlong, under_value = false, mxv = 0, mnv = 0, rs_rof = false) {
+  switch (typeof tg_arrlong) {
+    case 'number':
+      if (typeof under_value == 'number' && under_value <= tg_arrlong)
+        rs_rof = Math.floor(Math.random() * (parseInt(tg_arrlong - under_value) + 1)) + under_value;
+      else rs_rof = Math.floor(Math.random() * (tg_arrlong + 1));
+      break;
+    default:
+      if (typeof tg_arrlong == 'string') tg_arrlong = tg_arrlong.split('/');
+      mxv = tg_arrlong.length;
+      if (tg_arrlong.includes(under_value)) {
+        mnv = tg_arrlong.indexOf(under_value);
+        rs_rof = tg_arrlong[Math.floor(Math.random() * parseInt(mxv - mnv)) + mnv];
+      }
+      else rs_rof = tg_arrlong[Math.floor(Math.random() * mxv)];
+      break;
+  }
+  return rs_rof;
+}
+
 document.head.innerHTML += '<link rel="stylesheet" href="/css/menustyle.css"/>';
 
 //orgroot corrector
@@ -41,12 +61,35 @@ for (limark of document.querySelectorAll('ol li')) {
   if (limark.innerHTML.includes('?!')) {
     limark.innerHTML = '<linehead>' + limark.innerHTML.split('?!')[0] + '</linehead>' + limark.innerHTML.split('?!')[1];
   }
-  if (limark.innerHTML.includes('//')) {
-    limark.innerHTML = limark.innerHTML.split('//')[0] + '<linetail>' + limark.innerHTML.split('//')[1] + '</linetail>';
-  }
 
-  if (limark.innerHTML.length - limark.innerHTML.replaceAll(');', '').length > 2)
-   limark.innerHTML = limark.innerHTML.replace('console.log(', '콘솔(<input onclick="this.select()" ondblclick="console.log(eval(this.value))" readonly value="').replace(');!!', '">);');
-  else
-    limark.innerHTML = limark.innerHTML.replace('console.log(', '콘솔(<input onclick="this.select()" ondblclick="console.log(eval(this.value))" readonly value="').replace(');', '">);');
+  if (limark.innerHTML.includes('textarea'))
+    limark.innerHTML = limark.innerHTML.replace('코드보기', '코드보기<input type="checkbox">');
+  else {
+    if (limark.innerHTML.includes('//')) {
+      limark.innerHTML = limark.innerHTML.split('//')[0] + '<linetail>' + limark.innerHTML.split('//')[1] + '</linetail>';
+    }
+    if (limark.innerHTML.includes('console.log(')) {
+      if (limark.innerHTML.length - limark.innerHTML.replaceAll(');', '').length > 2)
+        limark.innerHTML = limark.innerHTML.replace('console.log(', '콘솔(<input onclick="this.select()" ondblclick="console.log(eval(this.value))" readonly value="').replace(');!!', '">);')
+      else
+        limark.innerHTML = limark.innerHTML.replace('console.log(', '콘솔(<input onclick="this.select()" ondblclick="console.log(eval(this.value))" readonly value="').replace(');', '">);')
+    }
+  }
 }
+
+[].forEach.call(document.querySelectorAll('textarea'), (tareas) => {
+  tareas.setAttribute('readonly', 'readonly');
+  tareas.ondblclick = () => {
+    console.clear(); console.log(eval(tareas.value));
+  }
+  tareas.onwheel = () => event.stopPropagation();
+});
+
+[].forEach.call(document.querySelectorAll('ol>li [type=checkbox]'), (cckbox) => {
+  cckbox.oninput = () => {
+    if (cckbox.checked == true) {
+      for (chkfortx of document.querySelectorAll('ol>li [type=checkbox]')) chkfortx.checked = false;
+      cckbox.checked = true;
+    }
+  }
+});

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+  </style>
+  <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>배열<span><sub>(Array)</sub></span></h1>
+  <p>같은 이름으로 여러 개의 원소를 지정</p>
+  <ul subbox>
+    <li>배열은 원소에 접근할 때 [index]로 접근</li>
+    <li>배열은 자체적으로 길이값을 제공(.length)</li>
+  </ul>
+  <hr>
+  <h3>배열의 선언과 접근</h3>
+  <ol>
+    <li>배열을 쓰는 이유</li>
+    <li>개별선언?! const scoreCy = 100;const scoreMs = 100;const scoreJW = 100;//번거로움</li>
+    <li>배열선언?! let scores = [99,74,82,65,100]//하나의 이름으로 여러 개 값 </li>
+    <li>접근1?! 코드보기<textarea>
+let scores = [99,74,82,65,100];
+let aver = 0;
+for(let sci=0;sci<scores.length;sci++){
+      aver+=scores[sci];
+}
+console.log(`합계는 ${aver}, 평균은 ${aver/scores.length}`);
+    </textarea></li>
+    <li>접근2?! 코드보기<textarea>
+const fruit = ['Apple','Banana','Grape']
+//배열[인덱스]를 통해 개별 값을 추출
+console.log(fruit[0]);
+//배열 식별자는 배열 전체값을 호출
+console.log(fruit);
+</textarea></li>
+</ol>
+  <hr>
+  <h3>배열의 함수</h3>
+  <ol>
+    <li>탐색할 땐 indexOf</li>
+    <li>indexOf?! console.log(let s1=[1,2,3];console.log(s1.indexOf(2)););!!//index는 0부터 시작</li>
+    <li>없다면?! console.log(let s1=[1,2,3];console.log(s1.indexOf(7)););!!//배열에 없는 원소 탐색시 -1 반환</li>
+  </ol>
+  <br>
+  <ol>
+    <li>추가할 땐 push, unshift / 제거할 땐 pop, shift</li>
+    <li>push?! console.log(let s1=[1,2,3];s1.push(6);console.log(s1););!!//맨 마지막에 추가</li>
+    <li>unshift?! console.log(let s1=[1,2,3];s1.unshift(9);console.log(s1););!!//맨 얖에 추가</li>
+    <li>pop?! console.log(let s1=[1,2,3];console.log(s1.pop());console.log(s1););!!//마지막 원소 제거</li>
+    <li>shift?! console.log(let s1=[1,2,3];console.log(s1.shift());console.log(s1););!!//첫 번째 원소 제거</li>
+  </ol>
+  <br>
+  <ol>
+    <li>splice의 용도</li>
+    <li subs>1개 혹은 2개의 인수는 삭제</li>
+    <li subs>첫 번째에 위치, 두 번째 인수에 0을 쓰면 3번째 인수부터 추가</li>
+    <li>자르기(1)?! console.log(let s1=[1,2,3];console.log(s1.splice(0,1));console.log(s1););!!//원소 추출 및 원본 갱신(원본 배열에 영향o)
+    </li>
+    <li>자르기(2)?! console.log(let s1=[1,2,3,5,7];console.log(s1.splice(3));console.log(s1););!!//인수 하나면 우측에서 해당 인덱스까지
+      자름</li>
+    <li>교체하기?! console.log(let s1=[1,2,3];console.log(s1.splice(0,1,8));console.log(s1););!!//0번째에 1개만큼을 8로 교체(인수2는 삭제할
+      길이)</li>
+    <li>더하기(1)?! console.log(let s1=[1,2,3];console.log(s1.splice(0,0,5));console.log(s1););!!//0,0으로 시작하면 맨 앞에 더해짐</li>
+    <li>더하기(2)?! console.log(let s1=[1,2,3];console.log(s1.splice(3,0,5));console.log(s1););!!//배열의 길이로 시작하면 맨 끝에 더해짐
+    </li>
+    <li>더하기(3)?! console.log(let s1=[1,2,3];console.log(s1.splice(2,0,5));console.log(s1););!!//몇 번째 인덱스에 추가할 건지</li>
+  </ol>
+  <br>
+  <ol>
+    <li>복제할 땐 slice, 합체할 땐 concat</li>
+    <li>slice?! console.log(let s2=[1,2,3].slice(0,2);console.log(s2););!!//원소 카피(원본 배열에 영향x)</li>
+    <li>concat?! console.log(let s1=[1,2,3];let s2=[5,6,8];console.log(s1.concat(s2)););!!//원소 카피(원본 배열에 영향x)</li>
+  </ol>
+  <br>
+  <ol>
+    <li>배열과 문자의 형 변환</li>
+    <li>join?! console.log(console.log([1,6,3]);console.log([1,6,3].join()););!!//배열을 문자로</li>
+    <li>join?! console.log(console.log([1,6,3]);console.log([1,6,3].join('/')););!!//원소 사이에 구분기호가 들어간 문자로</li>
+    <li>toString?! console.log(console.log([1,6,3]);console.log([1,6,3].toString()););!!//역시 배열을 문자로</li>
+  </ol>
+  <ol>
+    <li>뒤집을 땐 reverse, 정렬할 땐 sort</li>
+    <li>reverse?! console.log(let s1=[1,2,3];console.log(s1);console.log(s1.reverse()););!!//</li>
+    <li>sort?! console.log(let s1=[3,2,1];console.log(s1);console.log(s1.sort()););!!//</li>
+    <li subs>정렬시 주의! 정렬은 문자로 변경해서 정렬하기 때문에</li>
+    <li subs>s1.sort((a,b)=>{return a-b;});</li>
+    <li>sort(f)?! console.log(let s1=[40,10,50,30,4];console.log(s1);s1.sort((a,b)=>{return a-b;});console.log(s1););!!//</li>
+  </ol>
+  <br>
+  <br>
+  <hr>
+  <script src="menu.js">
+  </script>
+</body>
+
+</html>
