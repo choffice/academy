@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+  </style>
+  <link rel="stylesheet" href="variable.css">
+  <script>
+    let answer;
+    function seasonBirth() {
+      do {
+        answer = prompt('당신이 태어난 달을 입력하세요 (숫자만 입력)');
+      } while (isNaN(answer) || answer > 12);
+
+      if (answer > 2 && answer < 6) alert('봄이네요~');
+      else if (answer > 5 && answer < 9) alert('여름이네요~');
+      else if (answer > 8 && answer < 12) alert('가을이네요~');
+      else alert('겨울이네요~');
+    }
+  </script>
+</head>
+
+<body>
+  <h1>조건문 <sub>Condition</sub></h1>
+  <p>if, if else, if else if, 중첩 if, switch case문</p>
+  <hr>
+  <h3>if문</h3>
+  <ol>
+    <li>if(조건)</li>
+    <li>조건이 T?! console.log(if(1) console.log('if문 실행')); //명령문, 단수일 경우 {}생략가능</li>
+    <li>조건이 F?! console.log(if(0) console.log('if문 미실행')); //없는 문장이나 다름 없음</li>
+    <li>복수명령?! console.log(if(2) {console.log('명령1');console.log('명령2');});!!</li>
+  </ol>
+  <br>
+  <ol>
+    <li>if else</li>
+    <li>if?! console.log(if(1) console.log('if문 실행')); //조건이 참일 경우</li>
+    <li>else?! console.log(if(0) console.log('if문 미실행'); else console.log('else문 실행'););!! //조건이 거짓일 경우</li>
+  </ol>
+  <br>
+  <ol>
+    <li>if else if</li>
+    <li>다중조건?! if(조건1) else if(조건2) else {default}</li>
+    <li>예제?! console.log(if(1==2) console.log('a'); else if(1==1) console.log('b'); else console.log('c'));!! //범위가 좁은
+      거부터 시작해라</li>
+      <li>실습?! 태어난 달의 계절 맞히기 console.log(seasonBirth());</li>
+  </ol>
+  <hr>
+  <h3></h3>
+  <script src="menu.js">
+  </script>
+</body>
+
+</html>

@@ -44,8 +44,8 @@
     </script>
     <ol>
       <li>부호에 따른 ${식별자}의 결과값 차이</li>
-      <li>'?!console.log(`몫은 ${share}, 나머지는 ${remain}`); // `값을 가져온다</li>
-      <li>`?!console.log('몫은 ${share}, 나머지는 ${remain}'); // '텍스트로 인식'</li>
+      <li>`?!console.log(`몫은 ${share}, 나머지는 ${remain}`); // `값을 가져온다</li>
+      <li>'?!console.log('몫은 ${share}, 나머지는 ${remain}'); // '텍스트로 인식'</li>
     </ol>
     <br>
     <script>
@@ -275,7 +275,6 @@
     z1 *= 2;
     console.log(z1);
     z1 = 5;
-    console.clear();
     var z2 = 5; var z3 = 2; var z4 = 3;
     z2 += z3++ * --z4; //z2 = 5+(2*2)
     //z3=3, z4=2, "z2=9"
@@ -283,22 +282,45 @@
     //z4=3, z2=9, "z3=21" ... 변수에 넣는(=) 것은 일반 사칙연산 순서와 다르다: 맨 마지막
     z4 = z2 %= z3; //z2 = 9%3, z2=3, z4=, z3=2
     //=이 여러 개일 경우 우측항부터 계산한다? 아닌데 틀렸다..
-    var z2 = 5; var z3 = 2; var z4 = 3;
-       // z2 += z3++ * --z4; //z2 = 5+(2*2)
-    console.log('z2=',z2 += z3++ * --z4);
-     //z3 *= z2 - z4++; //z3 = 3* (9-2)
-    console.log('z3=',z3 *= z2 - z4++);
-    // z4 = z2 %= z3; //z2 = 9%3, z2=3, z4=, z3=2
-    console.log('z4=',z4 = z2 %= z3);
   </script>
   <hr>
   <h3>삼항 연산자</h3>
-  <p>( 조건 ? ㅇㄹ참 : 거짓 )</p>
   <script>
+    console.clear();
     //var num = prompt('숫자를 적어주세요');
     //console.log(isNaN(num)?'숫자가 아니예요':'숫자가 맞아요');
     //console.log(num%2==0?'짝수예요':'홀수예요');
   </script>
+  <ol>
+    <li>( 조건 ? 참 : 거짓 )</li>
+    <li>숫자/문자판별?! console.log(isNaN(1)?'숫자가 아니예요':'숫자가 맞아요'); //숫자가 맞아요</li>
+    <li>짝수/홀수판별?! console.log(3%2==0?'짝수예요':'홀수예요'); //홀수예요</li>
+  </ol>
+  <hr>
+  <h3>shift 연산자</h3>
+  <p>( &gt;&gt; , &lt;&lt; )</p>
+  <ul>
+    <li>101 이 왜 5일까?</li>
+    <li><span>십진수 5는 이진수에서 0+4+0+1로 계산(오른쪽부터 2의 0~n제곱)</span></li>
+    <li>5&lt;&lt;1 은 왜 10일까?</li>
+    <li><span>&lt;&lt;n는 모든 비트를 왼쪽으로 n칸 이동, 즉 5에서 1칸 이동시 오른쪽에 <u>0이 채워지고</u> 1010이 된다. 1010은 8+0+2+0이므로 10</span></li>
+    <ol>
+      <li>예제</li>
+      <li>console.log(5<<1); //10</li>
+      <li>console.log(10>>1);//5</li>
+    </ol>
+  </ul>
+  <hr>
+  <h3>비트 연산자</h3>
+  <p>|, &, ^, ~</p><br>
+  <p subbox>2진수에서 계산한다</p><br>
+  <ol>
+    <li>예제</li>
+    <li>OR?! console.log(2 | 1);//3</li>
+    <li>AND?! console.log(2 & 1);//0</li>
+    <li>XOR?! console.log(2 ^ 1);//3 서로 다르면 1, 같으면 0</li>
+    <li>NOT?! console.log(~2);//-3 모든 비트를 반전(보수)</li>
+  </ol>
   <hr>
   <script src="menu.js"></script>
 </body>

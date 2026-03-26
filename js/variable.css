@@ -146,8 +146,9 @@ linetail{
   display: inline-block;
   text-align: center;
  font-style: italic;
- float:right;
+ //float:right;
  padding-right: 2%;
   //margin:1% 2% 1% 3%;
+  transform:translate(5vw);
 }
 linetail:before{content:"… ";}
