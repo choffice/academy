@@ -41,6 +41,15 @@ function rof(tg_arrlong, under_value = false, mxv = 0, mnv = 0, rs_rof = false) 
   return rs_rof;
 }
 
+function goconsole(excode){
+  console.clear();
+  let consoletxt = [];
+  if(excode.previousElementSibling.tagName=='LINEHEAD') consoletxt.push(excode.previousElementSibling.innerText);
+  if(excode.nextElementSibling.tagName=='LINETAIL'&&excode.nextElementSibling.innerText.length>0) consoletxt.push(excode.nextElementSibling.innerText);
+  if(consoletxt.length>0) console.log('// '+consoletxt.join('\n')+' :');
+  console.log(eval(excode.value));
+}
+
 document.head.innerHTML += '<link rel="stylesheet" href="/css/menustyle.css"/>';
 
 //orgroot corrector
@@ -70,9 +79,9 @@ for (limark of document.querySelectorAll('ol li')) {
     }
     if (limark.innerHTML.includes('console.log(')) {
       if (limark.innerHTML.length - limark.innerHTML.replaceAll(');', '').length > 2)
-        limark.innerHTML = limark.innerHTML.replace('console.log(', '콘솔(<input onclick="this.select()" ondblclick="console.log(eval(this.value))" readonly value="').replace(');!!', '">);')
+        limark.innerHTML = limark.innerHTML.replace('console.log(', '콘솔(<input onclick="this.select()" ondblclick="goconsole(this)" readonly value="').replace(');!!', '">);')
       else
-        limark.innerHTML = limark.innerHTML.replace('console.log(', '콘솔(<input onclick="this.select()" ondblclick="console.log(eval(this.value))" readonly value="').replace(');', '">);')
+        limark.innerHTML = limark.innerHTML.replace('console.log(', '콘솔(<input onclick="this.select()" ondblclick="goconsole(this)" readonly value="').replace(');', '">);')
     }
   }
 }
@@ -80,7 +89,7 @@ for (limark of document.querySelectorAll('ol li')) {
 [].forEach.call(document.querySelectorAll('textarea'), (tareas) => {
   tareas.setAttribute('readonly', 'readonly');
   tareas.ondblclick = () => {
-    console.clear(); console.log(eval(tareas.value));
+    goconsole(tareas);
   }
   tareas.onwheel = () => event.stopPropagation();
 });
