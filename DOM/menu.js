@@ -1,4 +1,4 @@
-let tmlist = '변수선언/변수의타입/함수_연산자/함수_조건/함수_반복문/break_continue/Array/function/객체'.split('/');
+let tmlist = '요소선택/글자조작/속성조작'.split('/');
 
 document.head.innerHTML += '<link rel="stylesheet" href="/css/menustyle.css"/>';
 

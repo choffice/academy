@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+  </style>
+  <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>속성 조작하기</h1>
+  <hr>
+  <div subbox>
+    <p>※ 다음 코드들을 실행하기 전에 아래 코드를 최초실행 하시오</p>
+    <ol>
+      <li>DOM 최초실행 코드</li>
+      <li subs>예제DOM요소?! 코드보기<textarea>
+      gowrite();
+      gowrite('<h3 id="tit"></h3><image id="imgbox" alt="대체이미지" data-url="https://placehold.co/200x200">',0);
+      tit.innerText=now();
+      setInterval(()=>tit.textContent=now(),30000);
+    </textarea></li>
+    </ol>
+  </div>
+  <hr>
+  <h3>Attribute</h3>
+  <p subbox>setAttribute(), getAttribute(), removeAttribute(), hasAttribute()</p>
+  <br>
+  <ol>
+    <li>getAttribute : 속성값을 확인</li>
+    <li>코드보기<textarea>
+imgbox.setAttribute('src',imgbox.getAttribute('data-url'));
+  </textarea></li>
+    <li class="titline">setAttribute : 속성을 추가/수정</li>
+    <li>코드보기<textarea>
+imgbox.setAttribute('src','https://placehold.co/100x100');
+  </textarea></li>
+  </ol>
+  <hr>
+  <h3>style</h3>
+  <ol>
+    <li>요소.style.속성명 : 속성명은 camel 표기법 (-다음은 대문자)</li>
+    <li>코드보기<textarea>
+gowrite();
+gowrite('<div class="divcolor" style="background:red;width:100px;height:100px;float:left;"></div>'.repeat(5),0);
+let saturation = 0;
+for(colorpick of document.querySelectorAll('.divcolor')){
+  colorpick.style.filter = `brightness(${'.'+ ++saturation})`;
+}
+    </textarea></li>
+  </ol>
+  <script src="/script/global.js"></script>
+  <script src="menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+  </style>
+  <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>글자 조작하기</h1>
+  <hr>
+  <h3>textContent</h3>
+  <ol>
+    <li>.textContent</li>
+    <li>코드보기<textarea>
+let outputline;
+gowrite();
+gowrite('<div id="headerBox1"></div>',0);
+for(let n=0;n<10;n++) outputline+=`<h4>Header - ${n}</h4>`;
+headerBox1.textContent=outputline;
+    </textarea></li>
+    <br>
+    <li class="titline">.innerHTML</li>
+    <li>코드보기<textarea>
+let outputline;
+gowrite();
+gowrite('<div id="headerBox2"></div>',0);
+for(let n=0;n<10;n++) outputline+=`<h4>Header - ${n}</h4>`;
+headerBox2.innerHTML=outputline;
+    </textarea></li>
+    <br>
+    <li class="titline">.value</li>
+    <li>코드보기<textarea>
+let outputline;
+gowrite();
+gowrite('<div id="headerBox3"></div><input id="txt">',0);
+for(let n=0;n<10;n++) outputline+=`<h4>Header - ${n}</h4>`;
+headerBox3.value=outputline; //value는 form양식에만 있는 속성
+txt.value=outputline;
+    </textarea></li>
+  </ol>
+  <h3>innerHTML</h3>
+  <ol>
+    <li></li>
+    <li></li>
+  </ol>
+  <script src="menu.js">
+  </script>
+</body>
+
+</html>

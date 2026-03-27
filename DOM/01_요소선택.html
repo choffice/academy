@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+*{margin:0;padding:0;box-sizing:border-box;list-style:none;}
+ </style>
+ <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>DOM</h1>
+  <h1><span><sub>Document Object Model, 문서 객체 모델</sub></span></h1>
+  <br>
+  <div subbox>Javascript로 문서의 요소에 접근하기</div>
+  <hr>
+  <h3>DOM 요소 선택하기</h3>
+  <ol>
+    <li>id, class, 선택자로 접근하기</li>
+    <li subs>스크립트에서 DOM요소를 불러올 때는 DOM생성이 선행해야 함</li>
+    <li subs>문서 초기화(읽혀진) 이후에 작동하기 위해서는 <b>window.onload</b> 사용</li>
+    <li>id?!첫 번째 거만(단수) .getElementById() / 코드보기<textarea>
+      gowrite();
+      gowrite('<h4 id="box" class="subject">h4Subject</h4><div id="box" class="subject">divBox</div>',0);
+      console.log(document.getElementById('box'));
+      //textContent 요소 내의 노드 텍스트
+      console.log('textContent :'+document.getElementById('box').textContent);
+    </textarea></li>
+    <li>*style은 복수의 id도 선택되지만, <b>script는 첫 번째 기준</b></li>
+    <li subbox>=> querySelector(All)로는 지정 가능</li>
+    <li>class?!배열이 출력 .getElement<b>s</b>ByClassName() / 코드보기<textarea>
+      gowrite();
+      gowrite('<h4 class="subject">h4Subject</h4><div id="box" class="subject">divBox</div>',0);
+      console.log(document.getElementsByClassName('subject'));
+      console.log(document.getElementsByClassName('subject')[1]);
+    </textarea></li>
+    <li>태그로 호출?!배열이 출력 .getElement<b>s</b>ByTagName() / 코드보기<textarea>
+      gowrite();
+      gowrite('<h5 class="subject">h5Tag1</h5><h5 class="subject">h5Tag2</h5><h5 class="subject">h5Tag3</h5><h5 class="subject">h5Tag4</h5><h5 class="subject">h5Tag5</h5>',0);
+      console.log(document.getElementsByTagName('h5'));
+      //단수여도 배열로 출력
+      console.log(document.getElementsByTagName('h5')[0]);
+      //없으면 undefined
+      console.log(document.getElementsByTagName('h5')[3]);
+      //색상 입히기
+      for(let idx=0;idx<document.getElementsByTagName('h5').length;idx++){if(idx%2==0) document.getElementsByTagName('h5')[idx].style.background='yellow'};
+    </textarea></li>
+    <li>선택자(단수)?!첫 번째 거만(단수) .querySelector() / 코드보기<textarea>
+      gowrite();
+      gowrite('<h4 class="subject">h4Sub</h4><div class="subject">divSub</div><span id="box" class="subject">spanSub</span>',0);
+      console.log(document.querySelector('.subject'));
+    </textarea></li>
+      <li>선택자(복수)?!배열이 출력 .querySelector<b>All()</b> / 코드보기<textarea>
+      gowrite();
+      gowrite('<h4 class="subject">h4Sub</h4><div class="subject">divSub</div><span id="box" class="subject">spanSub</span>',0);
+      console.log(document.querySelectorAll('.subject'));
+    </textarea></li>
+  </ol>
+  <hr>
+<script src="menu.js">
+</script>
+</body>
+</html>

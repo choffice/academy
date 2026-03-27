@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+  </style>
+  <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>객체 <span><sub>object</sub></span></h1>
+  <p>속성(변수)과 기능(함수)를 지닌다</p>
+  <hr>
+  <h3>객체의 생성과 접근</h3>
+  <ol>
+    <li>객체의 생성</li>
+    <li>배열?! console.log(let arr=['a','b'];console.log(arr[0],arr[1]));!!// 배열[인덱스] </li>
+    <li>객체?! 코드보기<textarea>
+const person = {
+  name:'Alice',
+  age:25,
+  isStudent:true,
+  go: ()=>console.log('go go go')
+ }
+ console.log(person.name); console.log(person.age); person.go();
+ </textarea></li>
+  </ol>
+  <br>
+  <ol>
+    <li>객체의 속성 추가, 수정, 삭제</li>
+    <li>추가나 수정은 <b>객체.키=값</b>, 삭제는 <b>delete 객체.키</b> / 코드보기<textarea>
+      const person = {
+      name:'Alice',
+      age:25,
+      isStudent:true,
+      go: ()=>console.log('go go go')
+ }
+      person.job = "Developer" //객체의 속성 추가
+      person.age = 26  // 속성 수정
+      delete person.isStudent; // 속성 삭제
+      console.log(person)
+    </textarea></li>
+  </ol>
+  <br>
+  <ol>
+    <li>객체의 메서드(함수)</li>
+    <li>객체의 값으로 넣은 함수는 <b>객체.키()</b>로 실행 / 코드보기<textarea>
+      const person2 = {
+        name: "Alice",
+        age: 25,
+        isStudent: true,
+        greet: function () {
+          console.log("Hello I'm " + this.name)
+        }
+      }
+      person2.greet()
+    </textarea></li>
+  </ol>
+  <br>
+  <ol>
+    <li>객체의 전체 접근</li>
+    <li>not iterable요소라 <b>for in</b>문으로 호출 / 코드보기<textarea>
+            const person2 = {
+        name: "Alice",
+        age: 25,
+        isStudent: true,
+        greet: function () {
+          console.log("Hello I'm " + this.name)
+        }
+      }
+      for (let key in person2) {
+        console.log(key, person2[key])
+      }
+      // person2 is not iterable
+      // for (let key of person2) {
+      //   console.log(key, person2[key])
+      // }
+    </textarea></li>
+  </ol>
+  <br>
+  <ol>
+    <li>중첩 객체</li>
+    <li>객체 안에 객체를 넣을 수 있다 / 코드보기<textarea>
+      const user = {
+        id: 1,
+        profile: {
+          username: "g_dev",
+          email: "g_dev@example.com"
+        }
+      };
+      console.log(user.profile.username);
+    </textarea></li>
+  </ol>
+  <br>
+  <ol>
+    <li>객체의 구조 분해 할당</li>
+    <li>이해 안 된다 / 코드보기<textarea>
+      const person3 = {
+        name: "Alice",
+        age: 25,
+      };
+
+      const { name, dan } = person3;
+      // 객체의 구조분해 할당은 키값이 같을 경우 할당된다.
+      console.log(name); // Alice
+      console.log(dan);  // undefined
+    </textarea></li>
+  </ol>
+  <br>
+  <ol>
+    <li>객체 단축 문법 (ES6)</li>
+    <li>데이터가 담긴 변수를 키로 사용하면 <b>{키 : 값}</b>이 자동 정의 / 코드보기<textarea>
+      let name2 = "Eve";
+      let age2 = 20;
+
+      const student = { name2, age2 };
+      console.log(student); // { name2: "Eve", age2: 20 }
+
+    </textarea></li>
+  </ol>
+  <script src="menu.js">
+  </script>
+</body>
+
+</html>

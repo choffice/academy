@@ -72,6 +72,10 @@ a[href$="in.html"] {
   background: rgb(253, 92, 92);
 }
 
+#homemenu~a:not([href$="in.html"]):nth-of-type(6) {
+  background: rgb(250, 118, 118);
+}
+
 #homemenu~br {
   display: none;
 }
