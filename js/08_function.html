@@ -51,12 +51,12 @@ var fncVar = () => {console.log('호이스팅이 되지 않습니다');}
     <li>리턴 재사용?! console.log(function hello(){return 'hello';};let hi=hello();console.log(hi););!!//함수의 리턴값을 재사용할
       경우
       변수로 받는 게 효율적</li>
-      <li subs>*함수를 리턴할 수도 있다</li>
-    </ol>
-    <br>
-    <ol>
-      <li>매개변수에 따른 함수의 유형</li>
-      <li>일반변수와 차이?! 매개변수에는 제어자를 붙이면 안 됨</li>
+    <li subs>*함수를 리턴할 수도 있다</li>
+  </ol>
+  <br>
+  <ol>
+    <li>매개변수에 따른 함수의 유형</li>
+    <li>일반변수와 차이?! 매개변수에는 제어자를 붙이면 안 됨</li>
     <li>scope?! 함수에서 선언된 매개변수는 지역변수</li>
     <li>개수?! 매개변수의 갯수와 다를 때는 정의된 매개변수만 개수만큼만 처리</li>
     <li>예제?!코드보기<textarea>
@@ -82,10 +82,10 @@ var fncVar = () => {console.log('호이스팅이 되지 않습니다');}
     <li subs>익명함수는 함수 이름이 없다</li>
     <li>함수 표현식은 익명함수를 변수에 할당 (메모리 절약)</li>
     <li>예제?! 코드보기<textarea>
-  //함수 호이스팅 안 됨, 변수의 선언초기화 규칙과 동일
-  let anonymousFnc = function(){
-  console.log('익명함수이자 함수표현식입니다');
-  }      
+      //함수 호이스팅 안 됨, 변수의 선언초기화 규칙과 동일
+      let anonymousFnc = function(){
+        console.log('익명함수이자 함수표현식입니다');
+      }      
     </textarea></li>
   </ol>
   <hr>
@@ -95,57 +95,104 @@ var fncVar = () => {console.log('호이스팅이 되지 않습니다');}
     <li>console.log(var arr1=[1,2]; var arr2=[3,4]; arr3=[...arr1, ...arr2];console.log(arr3););!!//전개 연산자로 매개변수를
       combined</li>
     <li>예제?! 코드보기<textarea>
-var arr1=[1,2]; var arr2=[3,4]; arr3=[...arr1, ...arr2];
-function sum(a,b,c){return a+b+c;}
-console.log(arr3);
-console.log(sum(...arr3)); //매개변수의 개수에 따라 순서대로 3개만 사용
-    </textarea></li>
+        var arr1=[1,2]; var arr2=[3,4]; arr3=[...arr1, ...arr2];
+        function sum(a,b,c){return a+b+c;}
+        console.log(arr3);
+        console.log(sum(...arr3)); //매개변수의 개수에 따라 순서대로 3개만 사용
+      </textarea></li>
+    <br>
     <li class="titline">나머지 매개변수 rest parameter (...)</li>
     <li subs>매개변수의 개수를 정의하지 않는다</li>
     <li subs>매개변수가 배열처럼 정의되기 때문에 인덱스로 참조해줘야 한다</li>
     <li subs>반드시 일반 매개변수 끝에 정의되어야 한다</li>
     <li>기본예제?! 코드보기<textarea>
-function sumAll(...nums){
-  tot = 0;
-  //매개변수가 배열처럼 정의되기 때문에 인덱스로 참조해줘야 한다
-  for(let i=0;i<nums.length;i++) tot+=nums[i];
-  console.log(tot);
-}      
-sumAll(1,2); //더해준다
-sumAll(1,2,3,4,5,6,7,8,9,10); //다 더해준다
-sumAll(); //연산값이 없어서 0이 나온다, 에러 안 나고 실행은 됨
-    </textarea></li>
+        function sumAll(...nums){
+          tot = 0;
+          //매개변수가 배열처럼 정의되기 때문에 인덱스로 참조해줘야 한다
+          for(let i=0;i<nums.length;i++) tot+=nums[i];
+          console.log(tot);
+        }
+        sumAll(1,2); //더해준다
+        sumAll(1,2,3,4,5,6,7,8,9,10); //다 더해준다
+        sumAll(); //연산값이 없어서 0이 나온다, 에러 안 나고 실행은 됨
+      </textarea></li>
     <li>혼합예제?! 코드보기<textarea>
-function myFnc2(a, b, ...args){
-  console.log(a,b,args.toString());
-}
-myFnc2(1,2);//rest parameter가 아닌 매개변수는 초기화되어야 한다
-myFnc2(1,2,3,4,5);//역시 ok
-myFnc2(); //에러는 안 나지만 초기화되지 않은 매개변수는 undefined으로 처리
-//나머지 매개변수는 반드시 일반 매개변수 뒤에 정의되어야 한다
-//function myFnc3(...args,a,b){} //Rest parameter must be last
-  </textarea></li>
+        function myFnc2(a, b, ...args){
+          console.log(a,b,args.toString());
+        }
+        myFnc2(1,2);//rest parameter가 아닌 매개변수는 초기화되어야 한다
+        myFnc2(1,2,3,4,5);//역시 ok
+        myFnc2(); //에러는 안 나지만 초기화되지 않은 매개변수는 undefined으로 처리
+        //나머지 매개변수는 반드시 일반 매개변수 뒤에 정의되어야 한다
+        //function myFnc3(...args,a,b){} //Rest parameter must be last
+      </textarea></li>
   </ol>
   <hr>
   <h3>Closure 현상</h3>
   <ol>
     <li>클로저 :: 지역변수가 {}밖에서도 사용되는 현상</li>
     <li>자바스크립트가 가지는 특징적인 현상 중에 하나</li>
+    <li>클로저 현상을 방지하려면 for문의 매개변수에 제어자를 포함해주면 된다, 그러나 함수는 제어자를 지정할 수 없으므로 안 된다</li>
     <li>예제?! 코드보기<textarea>
-//함수를 리턴하는 함수
-function multiplier(x){
-  return function(y){
-    return x*y;
-  }
-}  
-//mVar에 2의 값이 살아 있음
-const mVar = multiplier(2);
-console.log(mVar(2));    
+        //함수를 리턴하는 함수
+        function multiplier(x){
+          return function(y){
+            return x*y;
+          }
+        }  
+        //mVar에 2의 값이 살아 있음
+        const mVar = multiplier(2);
+        console.log(mVar(2));    
     </textarea></li>
   </ol>
+  <hr>
+  <h3>화살표 함수</h3>
+  <ol>
+    <li>arrow function :: 함수의 축약형</li>
+    <li subs>원형함수는 불가, <b>익명함수</b>만 변형 가능</li>
+    <li>*비교연산자는 >=로, 반드시 등호가 뒤에 가야한다</li>
+    <li subs>명령문이 하나일 경우 {}는 생략이 가능하다</li>
+    <li subs>매개변수가 하나일 경우 ()도 생략이 가능하다</li>
+    <li>익명함수 방식?! console.log(var anonyfnc = function (){console.log('익명함수 방식');}anonyfnc(););!!//function(){}</li>
+    <li>화살표 방식?! console.log(var arrowfnc = () => {console.log('화살표 방식');}arrowfnc(););!!//()=>{}, (a,b)=>{}, a=>{},
+      a=>;</li>
+    </textarea></li>
+    <li subs>화살표 함수의 특징 :: 다른 명령문 없이 return만 있을 때 {return값}만 남기고 return명령어는 생략이 가능하다</li>
+    <li>위 내용 코드보기<textarea>
+      //축약 가능하다 : ()생략, {}생략, return 생략
+var fnc4 = function(a){return a;}
+console.log(fnc4('a'));
+var fnc4 = a => a;
+console.log(fnc4('a'));
+    </textarea></li>
+    <li>중첩()단순화?! 코드보기<textarea>
+//중첩 함수의 익명함수를 화살표 함수로 축약
+var fncInFnc = function(a){
+  inFnc = function(b){
+    return a+b;
+  }
+  return inFnc
+}
+console.log(fncInFnc(1));
+//열어서 닫는 게 아니라 return b=>a+b 를 변수 대신 바로 return한다고 본다 ... 안 나오는데?
+var fncInFnc = a => b => a+b;
+console.log(fncInFnc(1));
+    </textarea></li>
+    <li>sort()단순화?!코드보기
+      <textarea>
+let sortFnc = (a,b) => a-b;
+console.log(sortFnc(1,2));   
+      </textarea>
+    </li>
+    <li>find()단순화?!코드보기
+      <textarea>
+let arr10 = [1,2,3,4]
+arr10.find(item => item==true);   
+      </textarea>
+    </li>
+  </ol>
+  <hr>
   <script src="menu.js"></script>
-  <script>
-  </script>
 </body>
 
 </html>

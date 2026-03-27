@@ -7,9 +7,10 @@ body>* {
 
 body {
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
+  padding-top:5vh;
   height: 100vh;
 }
 

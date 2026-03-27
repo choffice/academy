@@ -10,12 +10,15 @@
     }
 
     section {
+      transform-style: preserve-3d;
+      perspective: 400px;
       margin: 0 auto;
       display: flex;
       width: 90vw;
       height: 100vh;
       justify-content: space-around;
-      align-items:center;
+      align-items: center;
+      transition-duration: .8s;
     }
 
     H1 {
@@ -55,8 +58,8 @@
     a:hover {
       filter: invert(1);
       box-shadow: 1em 1em 0 lightgray;
-      transform: translate(-1em, -1em);
-      transition-duration: .5s;
+      //transform: translate(-1em, -1em);
+      //transition-duration: .5s;
     }
 
     a:nth-of-type(3) {
@@ -103,7 +106,7 @@
 </HEAD>
 
 <BODY>
-  <section>
+  <section id="menuset">
     <a href="html/index.html">
       <h1>HTML</h1>
     </a>
@@ -122,7 +125,41 @@
       <h1>JS</h1>
     </a>
   </section>
-  <script>let ndate = new Date(); document.querySelector('a:nth-of-type(3)').innerHTML = '<span>' + ndate.toString().split(' ')[3] + '<br>' + ndate.toString().split(' ')[1] + '<br>' + ndate.toString().split(' ')[2] + '</span><sub>' + ndate.toString().split(' ')[0] + '</sub>';</script>
+  <script>
+    let ndate = new Date(); document.querySelector('a:nth-of-type(3)').innerHTML = '<span>' + ndate.toString().split(' ')[3] + '<br>' + ndate.toString().split(' ')[1] + '<br>' + ndate.toString().split(' ')[2] + '</span><sub>' + ndate.toString().split(' ')[0] + '</sub>';
+
+    //현재 메뉴 총 6개 간격은 24deg, 범위는 30~170 
+    let init_deg = [30,54,78,102,126,170];
+    for (let a_menuset in init_deg) {
+      menuset.children[a_menuset].style.transform = `rotateY(${init_deg[a_menuset]}deg)`;
+    }
+
+    let firstmove = [0, 0];
+    menuset.onmousemove = dmouse => {
+      let mousedir = 'center';
+      //마우스 감도 조절 5
+      if (Math.abs(firstmove[0] - dmouse.clientX) >= 1) {
+        if (firstmove[0] - dmouse.clientX < 0) mousedir = 'right';
+        else if (firstmove[0] - dmouse.clientX > 0) mousedir = 'left';
+      }
+      //회전각 조절 .1
+      let rotategap = dmouse.clientX * .1;
+      if (Math.abs(rotategap) >= 70) rotategap = String(rotategap).replace(Math.abs(rotategap), 70);
+      switch (mousedir) {
+        case 'left':
+          menuset.style.transform = `rotateY(${rotategap}deg)`;
+          for (let a_menuset in init_deg) {
+      menuset.children[a_menuset].style.transform = `rotateY(${parseInt(menuset.children[a_menuset].style.transform.replace('rotateY(',''))}deg)`;
+    }
+          break;
+        case 'right':
+          menuset.style.transform = `rotateY(${rotategap}deg)`;
+          break;
+      }
+      firstmove = [dmouse.clientX, dmouse.clientY];
+    }
+
+  </script>
 </BODY>
 
 </HTML>
