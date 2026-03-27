@@ -45,6 +45,17 @@ console.log(fruit[0]);
 //배열 식별자는 배열 전체값을 호출
 console.log(fruit);
 </textarea></li>
+    <li>접근3?! 코드보기<textarea>
+let scores = [99,74,82,65,100];
+//인덱스로 접근 in
+for(let idx in scores){
+  console.log(idx,':',scores[idx]);
+}
+//원소로 접근 of
+for(let scored of scores){
+  console.log(scored);
+}
+</textarea></li>
   </ol>
   <hr>
   <h3>배열의 함수</h3>
@@ -123,17 +134,30 @@ console.log(fruit);
   <br>
   <ol>
     <li>2차원 배열</li>
-    <li>코드보기<textarea>
-      ex2d.innerHTML = '';
+    <li subs>2차원 배열일 때 length는 행의 길이값</li>
+    <li>2차원 구조?! 코드보기<textarea>
+      gowrite();
 let arr2d = [[1,2,3],[4,5,6]]; //2행[] 3열,
 
 for(let i=0;i<arr2d.length;i++){
-  for(let j=0;j<arr2d[0].length;j++) {
-    if(j != 0) ex2d.innerHTML+=',';
-    ex2d.innerHTML+=arr2d[i][j];}
-  ex2d.innerHTML+='<br>';
+  for(let j=0;j<arr2d[i].length;j++) {
+    if(j != 0) gowrite(',',0);
+    gowrite(arr2d[i][j],0);}
+  gowrite('<br>',0);
 }
-    </textarea><div id="ex2d" style="width:50vw;height:10vh;"></div></li>
+    </textarea>
+    </li>
+  </ol>
+  <br>
+  <ol>
+    <li>배열 구조 분해 할당(Array Destructing Assignment)</li>
+    <li>코드보기<textarea>
+    const arr9 = [1,2,3];
+    const [a,b,c] = arr9;
+    console.log(a, b, c);
+    const [x, , z] = [10,20,30];
+    console.log(x,z);
+  </textarea></li>
   </ol>
   <hr>
   <script src="menu.js">

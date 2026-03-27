@@ -154,7 +154,7 @@ li textarea {
 linehead {
   background: orange;
   display: inline-block;
-  max-width: 100px;
+  max-width: 150px;
   min-width: 50px;
   text-align: center;
   font-weight: bold;

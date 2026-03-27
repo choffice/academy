@@ -1,4 +1,6 @@
-let tmlist = '변수선언/변수의타입/함수_연산자/함수_조건/함수_반복문/break_continue/Array'.split('/');
+let tmlist = '변수선언/변수의타입/함수_연산자/함수_조건/함수_반복문/break_continue/Array/function'.split('/');
+
+document.head.innerHTML += '<link rel="stylesheet" href="/css/menustyle.css"/>';
 
 if (location.href.includes('index.html')) {
   for (a_tm of tmlist) {
@@ -41,16 +43,22 @@ function rof(tg_arrlong, under_value = false, mxv = 0, mnv = 0, rs_rof = false) 
   return rs_rof;
 }
 
-function goconsole(excode){
+//콘솔에 실행
+function goconsole(excode) {
   console.clear();
   let consoletxt = [];
-  if(excode.previousElementSibling.tagName=='LINEHEAD') consoletxt.push(excode.previousElementSibling.innerText);
-  if(excode.nextElementSibling.tagName=='LINETAIL'&&excode.nextElementSibling.innerText.length>0) consoletxt.push(excode.nextElementSibling.innerText);
-  if(consoletxt.length>0) console.log('// '+consoletxt.join('\n')+' :');
+  if (excode.previousElementSibling != null && excode.previousElementSibling.tagName == 'LINEHEAD') consoletxt.push(excode.previousElementSibling.innerText);
+  if (excode.nextElementSibling != null && excode.nextElementSibling.tagName == 'LINETAIL' && excode.nextElementSibling.innerText.length > 0) consoletxt.push(excode.nextElementSibling.innerText);
+  if (consoletxt.length > 0) console.log('// ' + consoletxt.join('\n') + ' :');
   console.log(eval(excode.value));
 }
 
-document.head.innerHTML += '<link rel="stylesheet" href="/css/menustyle.css"/>';
+//DOM에 새로운 블랭크 추가 : document.write용
+function gowrite(thatcode = '', madebl = true) {
+    let writediv = event.target.nextElementSibling;
+    if (madebl) writediv.innerHTML = '';
+    else writediv.innerHTML += thatcode;
+}
 
 //orgroot corrector
 if (location.href.includes('github.io')) {
@@ -71,17 +79,20 @@ for (limark of document.querySelectorAll('ol li')) {
     limark.innerHTML = '<linehead>' + limark.innerHTML.split('?!')[0] + '</linehead>' + limark.innerHTML.split('?!')[1];
   }
 
-  if (limark.innerHTML.includes('textarea'))
+  if (limark.innerHTML.includes('textarea')){
     limark.innerHTML = limark.innerHTML.replace('코드보기', '코드보기<input type="checkbox">');
+    
+    if(limark.querySelector('textarea').value.indexOf('gowrite')>-1) limark.innerHTML = limark.innerHTML.replace('</textarea>', '</textarea><div style="width:50vw;height:10vh;"></div>');
+  }
   else {
     if (limark.innerHTML.includes('//')) {
       limark.innerHTML = limark.innerHTML.split('//')[0] + '<linetail>' + limark.innerHTML.split('//')[1] + '</linetail>';
     }
     if (limark.innerHTML.includes('console.log(')) {
       if (limark.innerHTML.length - limark.innerHTML.replaceAll(');', '').length > 2)
-        limark.innerHTML = limark.innerHTML.replace('console.log(', '콘솔(<input onclick="this.select()" ondblclick="goconsole(this)" readonly value="').replace(');!!', '">);')
+        limark.innerHTML = limark.innerHTML.replace('console.log(', '더블클릭▶(<input onclick="this.select()" ondblclick="goconsole(this)" readonly value="').replace(');!!', '">);')
       else
-        limark.innerHTML = limark.innerHTML.replace('console.log(', '콘솔(<input onclick="this.select()" ondblclick="goconsole(this)" readonly value="').replace(');', '">);')
+        limark.innerHTML = limark.innerHTML.replace('console.log(', '더블클릭▶(<input onclick="this.select()" ondblclick="goconsole(this)" readonly value="').replace(');', '">);')
     }
   }
 }

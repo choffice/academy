@@ -117,3 +117,8 @@ a[href="login.html"]>button {
 a[href="join.html"]>button {
   background: sandybrown;
 }
+
+#topmenu{flex-wrap:wrap;margin-top:2%;}
+#topmenu>li{font-size:2vh;margin-bottom:1%;}
+#topmenu>li:not(:first-child){box-shadow: 3px 3px 0 rgba(0,0,0,.8);}
+#topmenu>li:hover{filter:invert(1);transform: scale(1.2);}

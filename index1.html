@@ -10,12 +10,14 @@
     }
 
     section {
+      transform-style: preserve-3d;
+      perspective: 400px;
       margin: 0 auto;
       display: flex;
       width: 90vw;
       height: 100vh;
       justify-content: space-around;
-      align-items:center;
+      align-items: center;
     }
 
     H1 {
@@ -30,6 +32,10 @@
       width: 200px;
       height: 200px;
       margin-block: 5%;
+    }
+
+    a:nth-of-type(1) {
+      transform: rotateY(40deg);
     }
 
     a:nth-of-type(1) {
