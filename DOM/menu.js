@@ -1,4 +1,4 @@
-let tmlist = '요소선택/글자조작/속성조작'.split('/');
+let tmlist = '요소선택/글자조작/속성조작/이벤트'.split('/');
 
 document.head.innerHTML += '<link rel="stylesheet" href="/css/menustyle.css"/>';
 

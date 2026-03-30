@@ -43,16 +43,20 @@
       background: cadetblue;
     }
 
-    a:nth-of-type(4) {
+    a:nth-of-type(3) {
       background: cornflowerblue;
     }
 
-    a:nth-of-type(5) {
+    a:nth-of-type(4) {
       background: gold;
     }
 
-    a:nth-of-type(6) {
+    a:nth-of-type(5) {
       background: plum;
+    }
+
+    a:nth-of-type(6) {
+      background: rgb(26, 23, 17);
     }
 
     a:hover {
@@ -62,6 +66,7 @@
       //transition-duration: .5s;
     }
 
+    /*
     a:nth-of-type(3) {
       display: none;
       flex-direction: column;
@@ -75,6 +80,8 @@
       transform: translate(0);
       color: greenyellow;
     }
+      */
+
 
     a:nth-of-type(3)>span {
       width: 100%;
@@ -113,8 +120,6 @@
     <a href="style/index.html">
       <h1>CSS 선택자</h1>
     </a>
-    <a href="">
-    </a>
     <a href="style2/index.html">
       <h1>CSS 속성</h1>
     </a>
@@ -124,21 +129,25 @@
     <a href="js/index.html">
       <h1>JS</h1>
     </a>
+    <a href="DOM/index.html">
+      <h1>DOM API</h1>
+    </a>
   </section>
   <script>
-    let ndate = new Date(); document.querySelector('a:nth-of-type(3)').innerHTML = '<span>' + ndate.toString().split(' ')[3] + '<br>' + ndate.toString().split(' ')[1] + '<br>' + ndate.toString().split(' ')[2] + '</span><sub>' + ndate.toString().split(' ')[0] + '</sub>';
+    //let ndate = new Date(); document.querySelector('a:nth-of-type(3)').innerHTML = '<span>' + ndate.toString().split(' ')[3] + '<br>' + ndate.toString().split(' ')[1] + '<br>' + ndate.toString().split(' ')[2] + '</span><sub>' + ndate.toString().split(' ')[0] + '</sub>';
 
     //현재 메뉴 총 6개 간격은 24deg, 범위는 30~170 
-    let init_deg = [30,54,78,102,126,170];
+    let init_deg = [30, 54, 78, 102, 126, 170];
     for (let a_menuset in init_deg) {
       menuset.children[a_menuset].style.transform = `rotateY(${init_deg[a_menuset]}deg)`;
     }
 
     let firstmove = [0, 0];
+    menuset.style.transform = `rotateY(70deg)`;
     menuset.onmousemove = dmouse => {
       let mousedir = 'center';
       //마우스 감도 조절 5
-      if (Math.abs(firstmove[0] - dmouse.clientX) >= 1) {
+      if (Math.abs(firstmove[0] - dmouse.clientX) >= 5) {
         if (firstmove[0] - dmouse.clientX < 0) mousedir = 'right';
         else if (firstmove[0] - dmouse.clientX > 0) mousedir = 'left';
       }
@@ -149,8 +158,8 @@
         case 'left':
           menuset.style.transform = `rotateY(${rotategap}deg)`;
           for (let a_menuset in init_deg) {
-      menuset.children[a_menuset].style.transform = `rotateY(${parseInt(menuset.children[a_menuset].style.transform.replace('rotateY(',''))}deg)`;
-    }
+            menuset.children[a_menuset].style.transform = `rotateY(${parseInt(menuset.children[a_menuset].style.transform.replace('rotateY(', ''))}deg)`;
+          }
           break;
         case 'right':
           menuset.style.transform = `rotateY(${rotategap}deg)`;

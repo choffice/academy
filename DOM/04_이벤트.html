@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+  </style>
+  <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>이벤트 <span><sub>event</sub></span> 다루기</h1>
+  <p>행위가 일어났을 때 처리</p>
+  <hr><br>
+  <h3>이벤트의 처리방식</h3>
+  <br>
+  <ul subbox>
+    <li>1) <b>EventListener 방식(권장)</b> : <i>element</i>.addEventListener(<i>행위,콜백</i>)</li>
+    <li>2) <b>Event Handler Property 방식</b> : <i>element</i>.on행위=()=>익명함수</li>
+    <li>3) <b>Inline Event Handler</b> : HTML태그 안에 속성으로 부여 / on행위=""</li>
+  </ul>
+  <br>
+  <ol>
+    <li>유효성 검사 validation check 예제</li>
+    <li>
+      <form action="/" method="get">아이디 <input type="text" name="id" id="id" placeholder="id"> 암호 <input type="password"
+          name="pass" id="pass"> <input type="submit" formaction="/" value="저장"></form>
+      코드보기<textarea>
+document.querySelector('form>[type=submit]').onclick = (btnSubmit) => {
+event.preventDefault();
+//유효성 검사 validation check
+if (id.value.length + pass.value.length == 0) alert('아이디와 암호를 입력해주세요');
+else {
+  if (pass.value.length == 0) {alert('암호를 입력주세요'); pass.focus();}
+  else if (id.value.length == 0) {alert('아이디를 입력해주세요'); id.focus();}
+  document.querySelector('form').submit();
+  }
+}
+    </textarea>
+    </li>
+    <br>
+    <li class="titline">부모자식 요소간 이벤트 버블링(bubbling)</li>
+    <li>
+      <div style="width:200px;height:100px;background:pink;" id="box"><a href="#" id="atag">BOX</a></div>코드보기<textarea>
+box.onclick = () => alert('div');
+atag.onclick = () => {alert('a tag');event.stopPropagation();}
+        </textarea>
+    </li>
+    <br>
+    <li class="titline">이벤트 리스너로 이벤트 추가</li>
+    <li>코드보기<textarea>
+box.addEventListener('click',()=>{
+  alert('이벤트리스너 완료');
+});          
+        </textarea></li>
+    <li subs>이벤트리스너는 계속 이벤트가 누적되는 상황 발생</li>
+    <li>코드보기<textarea>
+box.addEventListener('click',()=>{
+  n++;
+  alert(`${n}번째 이벤트`);
+});          
+        </textarea></li>
+  </ol>
+  <hr>
+  <h3>이벤트의 전파 3단계</h3>
+  <ul subbox>
+    <li>Capturing Phase(캡쳐링) :: 부모 => 자식</li>
+    <li>Target Phase(타겟) :: 타겟된 실제 요소</li>
+    <li>Bubbling Phase(버블링) :: 자식 => 부모</li>
+  </ul>
+  <script src="menu.js"></script>
+  <script>
+    let n = 1;
+  </script>
+</body>
+
+</html>
