@@ -1,3 +1,45 @@
+#onbodd{
+  width:50px;
+  height:50px;
+  background:yellow;
+  border-radius:50%;
+  border:none;border-right:2px solid;border-bottom:2px solid;
+  opacity:.3;
+  position:fixed;
+  top:1vh;
+  right:1vh;
+}
+
+#onbodd:hover{opacity:1;}
+#onbodd:active{background:red;}
+
+#bodd{
+  width:150px;
+  height:150px;
+  background:transparent;
+  overflow: hidden;
+  outline:2px solid;
+  position:fixed;
+  top:0;
+  right:0;
+  visibility: hidden;
+}
+
+#onbodd.view+#bodd{
+visibility: visible;  
+}
+
+#bodd>li{
+  width:8%;height:8%;
+  list-style:none;
+  //border:1px dotted;
+  background:#000;
+  margin:-1%;
+  float:left;
+  border-radius: 50% 0 50% 0;
+  opacity: 0;
+}
+
 #homemenu {
   display: flex;
   justify-content: space-around;

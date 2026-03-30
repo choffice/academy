@@ -21,7 +21,7 @@
   <h1>이벤트 <span><sub>event</sub></span> 다루기</h1>
   <p>행위가 일어났을 때 처리</p>
   <hr><br>
-  <h3>이벤트의 처리방식</h3>
+  <h3>이벤트 부여 방식</h3>
   <br>
   <ul subbox>
     <li>1) <b>EventListener 방식(권장)</b> : <i>element</i>.addEventListener(<i>행위,콜백</i>)</li>
@@ -76,7 +76,18 @@ box.addEventListener('click',()=>{
     <li>Capturing Phase(캡쳐링) :: 부모 => 자식</li>
     <li>Target Phase(타겟) :: 타겟된 실제 요소</li>
     <li>Bubbling Phase(버블링) :: 자식 => 부모</li>
+    <li subs>버블링을 막기 위해 stopPropagation</li>
   </ul>
+  <br>
+  <ol>
+    <li>stopImmediatePropagation</li>
+    <li>: 이벤트리스너의 누적을 막기 위해</li>
+    <li><div id="parentele" style="width:100px;height:100px;background:skyblue;"><div id="immediate" style="width:80px;height:50px;background:salmon;"></div></div>코드보기<textarea>
+parentele.onclick = () => alert('부모');
+immediate.addEventListener('click', ()=>alert('전파1'));
+immediate.addEventListener('click', ()=>{event.stopImmediatePropagation();alert('전파2');});
+    </textarea></li>
+  </ol>
   <script src="menu.js"></script>
   <script>
     let n = 1;

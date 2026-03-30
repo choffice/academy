@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+*{margin:0;padding:0;box-sizing:border-box;list-style:none;}
+ </style>
+ <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>이벤트 타겟 <span>event.target</span></h1>
+  <p>위임(delegation), matches, closest</p>
+  <hr>
+  <h3>delegation 위임</h3>
+  <ul id="menu">
+   <li>짜장</li>
+   <li>짬뽕</li>
+   <li>라멘</li>
+  </ul>
+  <br>
+  <ol>
+    <li>부모->자식의 캡쳐링을 이용</li>
+    <li>: 부모에 넣어도 자식에 이벤트 발생 / 코드보기 <textarea>
+menu.addEventListener('click',(e)=>alert('클릭한 항목 : '+e.target.textContent));
+    </textarea></li>
+  </ol>
+  <hr>
+  <h3>matches</h3>
+    <ul id="menu2">
+   <li>짜장</li>
+   <mark>짬뽕</mark>
+   <li>라멘</li>
+  </ul>
+  <br>
+  <ol>
+    <li>부모->자식의 캡쳐링을 이용</li>
+    <li>: 부모에 넣어도 자식에 이벤트 발생 / 코드보기 <textarea>
+menu2.addEventListener('click',(e)=>{if(e.target.matches('li')) alert('클릭한 항목 : '+e.target.textContent);});
+    </textarea></li>
+  </ol>
+    <hr>
+  <h3>closest</h3>
+      <ul id="menu3">
+   <li>짜장</li>
+   <mark>짬뽕</mark>
+   <li>라멘</li>
+  </ul>
+  <br>  <ol>
+    <li>부모->자식의 캡쳐링을 이용</li>
+    <li>: 부모에 넣어도 자식에 이벤트 발생 / 코드보기 <textarea>
+menu3.addEventListener('click',(e)=>{if(e.target.closest('li')) alert('클릭한 항목 : '+e.target.textContent);});
+    </textarea></li>
+  </ol>
+  <hr>
+<script src="menu.js">
+</script>
+</body>
+</html>

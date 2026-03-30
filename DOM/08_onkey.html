@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = () => {
+      var sendMsg = document.querySelector("#sendMsg")
+      var msg = document.querySelector("#msg")
+      // onkeypress, onkeydown, onkeyup
+      msg.onkeydown = (e) => {
+        if (e.keyCode == 13) { //keyCode가 13번이면 엔터키
+          if (msg.value != "") {
+            sendMsg.append(msg.value + "\n");
+            sendMsg.scrollTop = sendMsg.scrollHeight; //스크롤 맨하단 자동 이동.
+          }
+          msg.value = "";
+          msg.focus();
+        }
+      }
+      msg.focus();
+    }
+  </script>
+</head>
+
+<body>
+  <!--  onsubmit에 return false를 넣지않으면 엔터키를 누를때 마다 submit된다. -->
+  <h1></h1>
+  <form action="#" onsubmit="return false;">
+    <textarea name="sendMsg" id="sendMsg" cols="30" rows="10"></textarea><br>
+    <input type="text" name="msg" id="msg" placeholder="메세지"><br>
+  </form>
+    <script src="menu.js"></script>
+          <script src="/pen.js"></script>
+</body>
+
+</html>

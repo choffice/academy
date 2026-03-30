@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+  <script>
+    //document를 가져오거나 스크롤할 때 이벤트
+    //onabort: 사용자의 작업을 빠져나올때, onerror: 이미지나윈도우를 읽으면서 에러 발생할 때
+    //onload, onresize, onunload:문서 종료할 때
+    window.onresize = function (e) {
+      // HTML5 표준
+      console.log("window 창의 너비: " + window.outerWidth)  // 
+      console.log("window 두께를 제외한 너비: " + window.innerWidth)  // 
+      console.log("window 창의 높이: " + window.outerHeight)  // 
+      console.log("window 두께를 제외한 높이: " + window.innerHeight)  // 
+
+      console.log("document offsetWidth: " + document.body.offsetWidth);
+      console.log("document scrollWidth: " + document.body.scrollWidth);
+      console.log("document clientWidth: " + document.body.clientWidth);
+    }
+  </script>
+</head>
+
+<body>
+  <h1></h1>
+  <script>window.onerror = () => alert('에러발생!');</script>
+  <script src="menu.js"></script>
+</body>
+
+</html>

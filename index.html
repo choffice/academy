@@ -147,7 +147,7 @@
     menuset.onmousemove = dmouse => {
       let mousedir = 'center';
       //마우스 감도 조절 5
-      if (Math.abs(firstmove[0] - dmouse.clientX) >= 5) {
+      if (Math.abs(firstmove[0] - dmouse.clientX) >= 30) {
         if (firstmove[0] - dmouse.clientX < 0) mousedir = 'right';
         else if (firstmove[0] - dmouse.clientX > 0) mousedir = 'left';
       }

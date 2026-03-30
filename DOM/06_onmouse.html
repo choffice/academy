@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="variable.css">
+  <script>
+  </script>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Mouse Event</h1>
+  <p>onclick, ondblclick, onmouseover, onmouseout, onmousedown, onmousemove, onmouseup</p>
+  <hr>
+  <script src="menu.js"></script>
+  <script>
+    window.onload = () => {
+      const btn = document.querySelector("button")
+      // let count = 1
+      // btn.onclick = () => {
+      //   if (count < 6) {
+      //     count++
+      //     btn.textContent += '⭐';
+      //     console.log(count)
+      //   }
+      // }
+
+      // 1~5사이를 왔다 갔다 하는 것
+      let cnt = 1 // 별의 갯수
+      let step = 1 // 5또는 1이 되면 step을 반전시키는 변수(1, -1)
+      btn.onclick = function () {
+        let star = ''
+        for (let i = 0; i < cnt; i++) star += "⭐"
+        btn.textContent = "별점 - " + star
+        cnt += step
+        if (cnt > 4 || cnt < 1) step = step * -1 // 반전시키는 부분
+      }
+
+
+      let area = document.querySelector("div")
+      area.onmouseover = () => {
+        area.style.background = "rgb(255,0,0)"
+        area.style.cursor = "pointer"
+      }
+      area.onmouseout = () => {
+        area.style.background = "white"
+        area.style.cursor = "pointer"
+      }
+      // area.onmouseenter = () => {
+      //   area.style.background = "yellow"
+      //   area.style.cursor = "pointer"
+      // }
+      area.onmousemove = (e) => {
+        console.log(`x:${e.screenX} y:${e.screenY}`)
+      }
+
+      //click을 해서 해당개체가 선택될 때
+      area.onmouseup = () => {
+        area.style.background = "yellow"
+        area.style.cursor = "pointer"
+      }
+      area.ondblclick = () => {
+        area.textContent = "double clicked"
+      }
+      area.onclick = () => {
+        area.textContent = ""
+      }
+    }
+  </script>
+  <button>별점 - </button>
+  <div></div>
+</body>
+
+</html>

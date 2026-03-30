@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+    }
+  </style>
+  <link rel="stylesheet" href="variable.css">
+</head>
+
+<body>
+  <h1>modal window</h1>
+  <p></p>
+  <hr>
+  <style>
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+    }
+
+    #modal {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 3px 3px rgba(55, 55, 55, .8);
+    }
+
+    #modal>h2 {}
+
+    #modal>p {}
+  </style>
+  <!-- 모달창 -->
+  <div class="modal-overlay">
+    <div id="modal">
+      <h2>Modal Window</h2>
+      <p>content</p>
+    </div>
+  </div>
+    <button class="open-modal">모달 열기</button>
+  <script src="menu.js">
+  </script>
+  <script>
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const openModal = document.querySelector('.open-modal');
+    openModal.addEventListener('click', () => {
+      modalOverlay.style.display = 'flex';
+    });
+    modalOverlay.addEventListener('click',()=>{
+      modalOverlay.style.display = 'none';
+    })
+  </script>
+</body>
+
+</html>
